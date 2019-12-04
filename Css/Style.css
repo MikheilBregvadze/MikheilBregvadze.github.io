@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: linear-gradient(to bottom right, #0a171b, #15242f);
+	width: 100%;
+	height: 100vh;
+	position: relative;
+}
+
+#app {
+	position: absolute;
+	width: 560px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.table {
+	display: flex;
+	width: 100%;
+	height: 70px;
+}
+
+.odd {
+	width: 70px;
+	height: 100%;
+	background: #191414;
+}
+
+.even {
+	width: 70px;
+	height: 100%;
+	background: rgba(136, 191, 239, 0.8);
+}
+.freeSeat,
+.black,
+.white {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.black-1 {
+	margin-left: 80px;
+}
+
+.white {
+	background: #fff;
+}
+
+.black {
+	background: #b12f12;
+}
+
+.black:hover {
+	background: #e2310a;
+}
+
+.white {
+	background: #786ac3;
+}
+
+.white:hover {
+	background: #8a7ae4;
+}
