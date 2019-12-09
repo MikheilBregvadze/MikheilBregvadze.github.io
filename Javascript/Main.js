@@ -1,199 +1,226 @@
-const gameDiv = document.getElementById("app");
+// let gameDiv = document.getElementById('app');
 
+let gameInfo = {
+    data: {
+        whites: [],
+        blacks: [],
+        freeSeats: []
+    },
+    row: null,
+    column: null,
+
+    freeSeatsRow: null,
+    freeSeatsColumn: null,
+
+    checkerParent: null,
+};
 
 class Game {
-	gameData = {
-		gameTable: [],
-		whites: [],
-		blacks: [],
-		freePlace: [],
-		currentPositions: {
-			id: null,
-			posX: null,
-			posY: null
-		}
-	}
-	whiteCheckerId = null;
-	blackCheckerId = null;
-	freeSeatId = null;
+    gameData = {
+        gameTable: [],
+        whites: [],
+        blacks: [],
+        freePlace: [],
+        checkersCurrentPositions: {
+            id: null,
+            posX: null,
+            posY: null,
+            row: null,
+            column: null,
+            keyName: null
+        },
+        test: [],
+        freeSeatsCurrentPositions: {
+            id: null,
+            posX: null,
+            posY: null,
+            row: null,
+            column: null,
+            keyName: null
+        }
+    };
+    load() {
+        this.createGameArena();
+        // this.createGameObject();
+        this.drawGameBackground();
+        this.createCheckers();
+        this.getElementId();
+    }
 
-	load() {
-		this.createGameArena();
-		this.setPositionElements();
-		this.getElementId();
-	}
+    createGameArena() {
+        for(let r = 0; r < 10; r++) {
+            this.gameData.gameTable.push({
+                row: []
+            });
+            for(let c = 0; c < 10; c++) {
 
-	createGameArena() {
-		for(let r = 0; r < 8; r++) {
-			const table = document.createElement("div");
-		    table.setAttribute("class", "table");
-			gameDiv.appendChild(table);
-			this.gameData.gameTable.push({
-				row: []
-			});
-			for(let c = 0; c < 8; c++) {
-				let odd = document.createElement('div');
-		    	odd.setAttribute('class', 'odd');
-		    	odd.setAttribute('id', 'odd' + '-' + r + c);
+                if(r < 4 && c % 2 === r % 2) {
+                    this.gameData.gameTable[r].row.push({
+                        name: 'black',
+                        id: "black-" + r + c,
+                        posX: 8 + (c - 1) * 80,
+                        posY: 8 + (r - 1) * 80,
+                        type: 1,
+                        status: "off"
+                    })
+                }else if(r < 3){
+                    this.gameData.gameTable[r].row.push({
+                        type: 2
+                    })
+                }else if(r > 5 && c % 2 === r % 2) {
+                    this.gameData.gameTable[r].row.push({
+                        name: 'white',
+                        id: "white-" + r + c,
+                        posX: 8 + (c - 1) * 80,
+                        posY: 330 + (r - 5) * 80,
+                        type: -1,
+                        status: "off"
+                    })
+                }else {
+                    if(c % 2 === r % 2) {
+                        this.gameData.gameTable[r].row.push({
+                            name: 'freeSeat',
+                            id: "free-" + r + c,
+                            posX: 8 + (c - 1) * 80,
+                            posY: 330 + (r - 5) * 80,
+                            type: 0,
+                            status: "off"
+                        })
+                    }else {
+                        this.gameData.gameTable[r].row.push({
+                            type: 2
+                        })
+                    }
+                }
+            }
+        }
+    }
 
-		    	let even = document.createElement('div');
-		    	even.setAttribute('class', 'even');
-		    	even.setAttribute('id', 'odd' + '-' + r + c);
-		    	if(c % 2 === r % 2) {
-					table.appendChild(odd);
-		    	}else {
-					table.appendChild(even);
-		    	}
+    drawGameBackground() {
+        for (let i = 0; i < 64; i++){
+            document.getElementById("table").appendChild(document.createElement("div")).style.backgroundColor = parseInt((i / 8) + i) % 2 == 0 ? '#ababab' : 'white';
+        }
+    }
 
-		    	if(r < 3 && c % 2 === r % 2) {
-		    		let roundBlack = document.createElement('div');
-		    		roundBlack.setAttribute('class', 'black checker');
-					odd.appendChild(roundBlack);
-					this.gameData.gameTable[r].row.push({
-						name: 'black',
-						id: "black-" + r + c,
-		    			posX: 10 + c * 70,
-		    			posY: 10 + r * 70,
-		    			type: 1,
-		    			status: "off"
-					})
-				}else if(r < 3){
-					this.gameData.gameTable[r].row.push({
-						type: 2
-					})
-				}else if(r > 4 && c % 2 === r % 2) {
-					let roundWhite = document.createElement('div');
-					roundWhite.setAttribute('class', 'white checker');
-					odd.appendChild(roundWhite);
+    createCheckers() {
+        let div = null;
+        for(let r = 0; r < this.gameData.gameTable.length; r++) {
+            for(let c = 0; c < this.gameData.gameTable[r].row.length; c++) {
+                if((r > 0 && r < 9) && (c > 0 && c < 9)) {
+                    if(this.gameData.gameTable[r].row[c].name === 'white' || this.gameData.gameTable[r].row[c].name === 'black' || this.gameData.gameTable[r].row[c].name === 'freeSeat') {
+                        div = document.createElement('div');
+                        div.setAttribute('class', 'checker');
+                        div.setAttribute('id', this.gameData.gameTable[r].row[c].id);
+                        div.style.left = this.gameData.gameTable[r].row[c].posX + 'px';
+                        div.style.top = this.gameData.gameTable[r].row[c].posY + 'px';
+                        document.getElementById('checkers').appendChild(div);
 
-					this.gameData.gameTable[r].row.push({
-						name: 'white',
-						id: "white-" + r + c,
-						posX: 10 + c * 70,
-						posY: 360 + (r - 5) * 70,
-						type: -1,
-						status: "off"
-					})
-				}else {
-					if(c % 2 === r % 2) {
-						let freeSeat = document.createElement('div');
-						freeSeat.setAttribute('class', 'freeSeat checker');
-						odd.appendChild(freeSeat);
-						this.gameData.gameTable[r].row.push({
-							name: 'freeSeat',
-							id: "free-" + r + c,
-							posX: 10 + c * 70,
-							posY: 360 + (r - 5) * 70,
-							type: 0,
-							status: "off"
-						})
-					}else {
-						this.gameData.gameTable[r].row.push({
-							type: 2
-						})
-					}
-				}
+                        if(this.gameData.gameTable[r].row[c].name === 'white') {
+                            div.setAttribute('class', 'white checker');
+                        }else if(this.gameData.gameTable[r].row[c].name === 'black') {
+                            div.setAttribute('class', 'black checker');
+                        }else {
+                            div.setAttribute('class', 'freeSeat checker');
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    changePosition(keyName) {
+        let parent = this;
+        for(let r = 0; r < this.gameData.gameTable.length; r++) {
+            for(let c = 0; c < this.gameData.gameTable[r].row.length; c++) {
+                if(this.blackCheckerId === this.gameData.gameTable[r].row[c].id) {
+                    this.gameData.checkersCurrentPositions.row = r;
+                    this.gameData.checkersCurrentPositions.column = c;
+
+                    if(keyName === 'black' && this.gameData.checkersCurrentPositions.keyName !== 'black' && (this.gameData.gameTable[r + 1].row[c + 1].type === 0 || this.gameData.gameTable[r + 1].row[c - 1].type === 0)) {
+                        this.checkerIsSelected = true;
+                        addGameData(keyName);
+                        console.log(keyName);
+                    }
+
+                    if(keyName === 'white' && this.gameData.checkersCurrentPositions.keyName !== 'white' && (this.gameData.gameTable[r - 1].row[c + 1].type === 0 || this.gameData.gameTable[r - 1].row[c - 1].type === 0)) {
+                        addGameData(keyName);
+                        this.checkerIsSelected = true;
+                    }
+
+                    if(keyName === 'freeSeat' && this.checkerIsSelected) {
+                        let freeSeat = document.getElementById(this.gameData.gameTable[r].row[c].id);
+                        freeSeat.style.id = this.gameData.checkersCurrentPositions.id;
+                        freeSeat.style.left = this.gameData.checkersCurrentPositions.posX + 'px';
+                        freeSeat.style.top = this.gameData.checkersCurrentPositions.posY + 'px';
+                        this.gameData.test.push({
+                            id: this.gameData.gameTable[r].row[c].id,
+                            posX: this.gameData.gameTable[r].row[c].posX,
+                            posY: this.gameData.gameTable[r].row[c].posY,
+                            status: this.gameData.gameTable[r].row[c].status,
+                            name: this.gameData.gameTable[r].row[c].name,
+                            type: this.gameData.gameTable[r].row[c].type,
+                        });
+
+                        let checker = document.getElementById(this.gameData.checkersCurrentPositions.id);
+                        checker.style.left = this.gameData.gameTable[r].row[c].posX + 'px';
+                        checker.style.top = this.gameData.gameTable[r].row[c].posY + 'px';
+                        this.checkerIsSelected = false;
+                        this.gameData.gameTable[r].row[c] = this.gameData.gameTable[gameInfo.row].row[gameInfo.column];
+
+                        if(this.gameData.checkersCurrentPositions.keyName === 'black' || this.gameData.checkersCurrentPositions.keyName === 'white') {
+                            this.gameData.gameTable[gameInfo.row].row[gameInfo.column] = this.gameData.test[0];
+                        }
+                    }
+                    function addGameData(keyName) {
+                        parent.gameData.checkersCurrentPositions.id = parent.gameData.gameTable[r].row[c].id;
+                        parent.gameData.checkersCurrentPositions.posX = parent.gameData.gameTable[r].row[c].posX;
+                        parent.gameData.checkersCurrentPositions.posY = parent.gameData.gameTable[r].row[c].posY;
+                        parent.gameData.checkersCurrentPositions.status = 'on';
+                        parent.gameData.checkersCurrentPositions.keyName = keyName;
+                        parent.gameData.checkersCurrentPositions.row = r;
+                        parent.gameData.checkersCurrentPositions.column = c;
+                        parent.checkerIsSelected = true;
+                        gameInfo.row = r;
+                        gameInfo.column = c;
+                    }
+                }
+            }
+        }
+    }
+
+    getElementId() {
+        let selectorName = document.querySelectorAll('.checker');
+        let elementId = null;
+        let parent = this;
+        for(let i = 0; i < selectorName.length; i++) {
+            selectorName[i].addEventListener('click', function() {
+                elementId = selectorName[i].id;
+                let current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+                if(selectorName[i].classList.contains('black')) {
+                    parent.blackCheckerId = elementId;
+                    parent.changePosition('black');
+                }else if(selectorName[i].classList.contains('white')) {
+                    parent.blackCheckerId = elementId;
+                    parent.changePosition('white');
+                }else if(selectorName[i].classList.contains('freeSeat')) {
+                    parent.blackCheckerId = elementId;
+                    parent.changePosition('freeSeat');
+                }
+                this.className += " active";
+                return elementId
+            });
+        }
+        if(elementId !== null) return elementId;
+    }
 
 
-
-			}
-		}
-	}
-
-	setPositionElements() {
-		let blacks = document.querySelectorAll('.black');
-		let whites = document.querySelectorAll('.white');
-
-		let countOfBalls = whites.length;
-		let table = this.gameData.gameTable;
-		for(let r = 0; r < table.length; r++) {
-			for(let c = 0; c < table[r].row.length; c++) {
-				if(table[r].row[c].name === 'white') {
-					console.log(table[r].row[c].posY);
-					console.log(c);
-						whites[c].style.top = table[r].row[c].posY + 'px';
-						whites[c].style.left = table[r].row[c].posX + 'px';
-						whites[c].setAttribute('id', table[r].row[c].id);
-				}
-			}
-		}
-
-		// for(let i = 0; i < countOfBalls; i++) {
-			// whites[i].style.top = this.gameData.whites[i].posY + 'px';
-			// whites[i].style.left = this.gameData.whites[i].posX + 'px';
-			// whites[i].setAttribute('id', this.gameData.whites[i].id);
-
-		// 	blacks[i].style.top = this.gameData.blacks[i].posY + 'px';
-		// 	blacks[i].style.left = this.gameData.blacks[i].posX + 'px';
-		// 	blacks[i].setAttribute('id', this.gameData.blacks[i].id);
-		// }
-
-		// for(let i = 0; i < this.gameData.freePlace.length; i++) {
-		// 	let freePlace = document.querySelectorAll('.freeSeat');
-
-		// 	freePlace[i].style.top = this.gameData.freePlace[i].posY + 'px';
-		// 	freePlace[i].style.left = this.gameData.freePlace[i].posX + 'px';
-		// 	freePlace[i].setAttribute('id', this.gameData.freePlace[i].id);
-		// }
-	}
-
-	changePosition() {
-		if(this.blackCheckerId !== null || this.whiteCheckerId !== null || this.freeSeatId !== null) {
-
-			let freeSeat = this.gameData.freePlace;
-			let blacks = this.gameData.blacks;
-			let whites = this.gameData.whites;
-
-			for(let f = 0; f < freeSeat.length; f++) {
-				for(let b = 0; b < blacks.length; b++) {
-					if(blacks[b].id === this.blackCheckerId) {
-						this.gameData.currentPositions.id = blacks[b].id;
-						this.gameData.currentPositions.posX = blacks[b].posX;
-						this.gameData.currentPositions.posY = blacks[b].posY;
-						this.gameData.currentPositions.status = 'on';
-
-						if(this.freeSeatId === freeSeat[f].id){
-							blacks[b].posX = freeSeat[f].posX;
-							blacks[b].posY = freeSeat[f].posY;
-						}
-					}
-				}
-			}
-		}
-
-	}
-
-	getElementId() {
-		let selectorName = document.querySelectorAll('.checker');
-		let elementId = null;
-		let parent = this;
-		for(let i = 0; i < selectorName.length; i++) {
-			selectorName[i].addEventListener('click', function() {
-				elementId = selectorName[i].id;
-				if(selectorName[i].classList.contains('black')) {
-					parent.blackCheckerId = elementId;
-				}else if(selectorName[i].classList.contains('white')) {
-					parent.whiteCheckerId = elementId;
-				}else if(selectorName[i].classList.contains('freeSeat')) {
-					parent.freeSeatId = elementId;
-				}
-				parent.changePosition();
-			});
-		}
-		if(elementId !== null) return elementId;
-	}
-
-	gameTicker() {
-		setInterval(() => {
-			
-		}, 100);
-	}
 }
-
 
 const chessGame = new Game();
 
 window.addEventListener("load", function(){
-	chessGame.load();
-	chessGame.gameTicker();
+    chessGame.load();
 });
