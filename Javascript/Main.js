@@ -298,7 +298,6 @@ class Game {
                     parent.changePosition('freeSeat');
                 }
                 this.className += " active";
-                console.log(elementId)
                 return elementId
             });
         }
