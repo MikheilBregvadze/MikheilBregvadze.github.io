@@ -1,5 +1,3 @@
-// let gameDiv = document.getElementById('app');
-
 let gameInfo = {
     data: {
         whites: [],
@@ -9,9 +7,11 @@ let gameInfo = {
     row: null,
     column: null,
 
+    killerCheckerCurrentRow: null,
+    killerCheckerCurrentColumn: null,
+
     freeSeatsRow: null,
     freeSeatsColumn: null,
-
     checkerParent: null,
 };
 
@@ -29,7 +29,11 @@ class Game {
             column: null,
             keyName: null
         },
-        test: [],
+        maybeKilled: {
+            id: null,
+        },
+        freeSeat: [],
+        notFreeSeats: [],
         freeSeatsCurrentPositions: {
             id: null,
             posX: null,
@@ -39,9 +43,9 @@ class Game {
             keyName: null
         }
     };
+    oneStepIsFinished = true ;
     load() {
         this.createGameArena();
-        // this.createGameObject();
         this.drawGameBackground();
         this.createCheckers();
         this.getElementId();
@@ -132,44 +136,35 @@ class Game {
         let parent = this;
         for(let r = 0; r < this.gameData.gameTable.length; r++) {
             for(let c = 0; c < this.gameData.gameTable[r].row.length; c++) {
-                if(this.blackCheckerId === this.gameData.gameTable[r].row[c].id) {
+                if(this.currentChecker === this.gameData.gameTable[r].row[c].id) {
                     this.gameData.checkersCurrentPositions.row = r;
                     this.gameData.checkersCurrentPositions.column = c;
 
-                    if(keyName === 'black' && this.gameData.checkersCurrentPositions.keyName !== 'black' && (this.gameData.gameTable[r + 1].row[c + 1].type === 0 || this.gameData.gameTable[r + 1].row[c - 1].type === 0)) {
+                    if(keyName === 'black' && !this.oneStepIsFinished) {
                         this.checkerIsSelected = true;
                         addGameData(keyName);
-                        console.log(keyName);
                     }
-
-                    if(keyName === 'white' && this.gameData.checkersCurrentPositions.keyName !== 'white' && (this.gameData.gameTable[r - 1].row[c + 1].type === 0 || this.gameData.gameTable[r - 1].row[c - 1].type === 0)) {
+                    if(keyName === 'white' && this.oneStepIsFinished && (this.gameData.gameTable[r - 1].row[c + 1].type === 0 || this.gameData.gameTable[r - 1].row[c - 1].type === 0)) {
                         addGameData(keyName);
                         this.checkerIsSelected = true;
                     }
 
                     if(keyName === 'freeSeat' && this.checkerIsSelected) {
-                        let freeSeat = document.getElementById(this.gameData.gameTable[r].row[c].id);
-                        freeSeat.style.id = this.gameData.checkersCurrentPositions.id;
-                        freeSeat.style.left = this.gameData.checkersCurrentPositions.posX + 'px';
-                        freeSeat.style.top = this.gameData.checkersCurrentPositions.posY + 'px';
-                        this.gameData.test.push({
-                            id: this.gameData.gameTable[r].row[c].id,
-                            posX: this.gameData.gameTable[r].row[c].posX,
-                            posY: this.gameData.gameTable[r].row[c].posY,
-                            status: this.gameData.gameTable[r].row[c].status,
-                            name: this.gameData.gameTable[r].row[c].name,
-                            type: this.gameData.gameTable[r].row[c].type,
-                        });
-
-                        let checker = document.getElementById(this.gameData.checkersCurrentPositions.id);
-                        checker.style.left = this.gameData.gameTable[r].row[c].posX + 'px';
-                        checker.style.top = this.gameData.gameTable[r].row[c].posY + 'px';
-                        this.checkerIsSelected = false;
-                        this.gameData.gameTable[r].row[c] = this.gameData.gameTable[gameInfo.row].row[gameInfo.column];
-
-                        if(this.gameData.checkersCurrentPositions.keyName === 'black' || this.gameData.checkersCurrentPositions.keyName === 'white') {
-                            this.gameData.gameTable[gameInfo.row].row[gameInfo.column] = this.gameData.test[0];
+                        if(this.gameData.checkersCurrentPositions.keyName !== this.gameData.gameTable[r+1].row[c+1].name && gameInfo.row + 2 === r && (gameInfo.column - 2 === c || gameInfo.column + 2 === c)) {
+                            console.log(this.gameData.gameTable[r].row[c].id);
+                            if(gameInfo.column > c) {
+                                this.killBlackChecker(r, c, 'killLeft');
+                            }else {
+                                this.killBlackChecker(r, c, 'killRight');
+                            }
+                        }else if(((this.gameData.checkersCurrentPositions.keyName === 'black' && gameInfo.row + 1 !== r) || !(gameInfo.column - 1 === c || gameInfo.column + 1 === c))) {
+                            return;
+                        }else if(((this.gameData.checkersCurrentPositions.keyName === 'white' && gameInfo.row - 1 !== r) || !(gameInfo.column - 1 === c || gameInfo.column + 1 === c))) {
+                            return;
+                        }else {
+                            this.killBlackChecker(r,c);
                         }
+                        this.endProcess();
                     }
                     function addGameData(keyName) {
                         parent.gameData.checkersCurrentPositions.id = parent.gameData.gameTable[r].row[c].id;
@@ -188,6 +183,99 @@ class Game {
         }
     }
 
+    killBlackChecker(r, c, actionName) {
+        let freeSeat = document.getElementById(this.gameData.gameTable[r].row[c].id);
+        this.gameData.notFreeSeats.push({
+            id: this.gameData.checkersCurrentPositions.id,
+            posX: this.gameData.gameTable[r].row[c].posX,
+            posY: this.gameData.gameTable[r].row[c].posY,
+            status: this.gameData.gameTable[r].row[c].status,
+            name: this.gameData.checkersCurrentPositions.keyName,
+            type: 1,
+        });
+        this.addFreeSeats(r, c);
+        freeSeat.style.id = this.gameData.checkersCurrentPositions.id;
+        freeSeat.style.left = this.gameData.checkersCurrentPositions.posX + 'px';
+        freeSeat.style.top = this.gameData.checkersCurrentPositions.posY + 'px';
+
+        let checker = document.getElementById(this.gameData.checkersCurrentPositions.id);
+        checker.style.left = this.gameData.gameTable[r].row[c].posX + 'px';
+        checker.style.top = this.gameData.gameTable[r].row[c].posY + 'px';
+        this.checkerIsSelected = false;
+
+        if(actionName === 'killRight') {
+            this.gameData.maybeKilled.id = this.gameData.gameTable[r - 1].row[c - 1].id;
+            this.createNewFreeSeats(r-1, c-1, 'killRight');
+            this.gameData.gameTable[r].row[c] = this.gameData.notFreeSeats[this.gameData.notFreeSeats.length - 1]; // Killer checkers row.
+            this.replaceFreeSeatAfterKill(gameInfo.row, gameInfo.column, 'killRight');
+        }else if(actionName === 'killLeft') {
+            this.gameData.maybeKilled.id = this.gameData.gameTable[r - 1].row[c + 1].id;
+            this.createNewFreeSeats(r-2, c+2, 'killLeft');
+            this.gameData.gameTable[r].row[c] = this.gameData.notFreeSeats[this.gameData.notFreeSeats.length - 1]; // Killer checkers row.
+            this.replaceFreeSeatAfterKill(gameInfo.row + 1, gameInfo.column + 1, 'killLeft');
+        }else {
+            this.gameData.gameTable[r].row[c] = this.gameData.notFreeSeats[this.gameData.notFreeSeats.length - 1];
+            this.gameData.gameTable[gameInfo.row].row[gameInfo.column] = this.gameData.freeSeat[this.gameData.freeSeat.length - 1];
+        }
+    }
+
+    createNewFreeSeats(r, c, keyName) {
+        let row = null;
+        if(keyName === 'killLeft') {
+            row = r + 2;
+        }else {
+            row = r;
+        }
+        this.gameData.gameTable[r].row[c] = {
+            id: 'free-' + (c - 1) + (row - 1),
+            name: 'freeSeat',
+            posX: this.gameData.gameTable[r].row[c].posX,
+            posY: this.gameData.gameTable[r].row[c].posY,
+            status: 'off',
+            type: 0
+        };
+    }
+
+    replaceFreeSeatAfterKill(r, c, keyName) {
+        let row = null;
+        if(keyName === 'killLeft') {
+            row = r + 1;
+        }else {
+            row = r;
+        }
+        this.gameData.gameTable[r].row[c] = {
+            id: 'free-' + (r + 1) + (c + 1),
+            name: 'freeSeat',
+            posX: 8 + (c - 1) * 80,
+            posY: 330 + (r - 5) * 80,
+            status: 'off',
+            type: 0
+        };
+        let newFeeSeat = document.getElementById(this.gameData.maybeKilled.id);
+        newFeeSeat.id = 'free-' + c + row;
+        newFeeSeat.classList.remove('white');
+        newFeeSeat.classList.add('freeSeat');
+    }
+
+    addFreeSeats(r, c) {
+        this.gameData.freeSeat.push({
+            id: this.gameData.gameTable[r].row[c].id,
+            posX: this.gameData.checkersCurrentPositions.posX,
+            posY: this.gameData.checkersCurrentPositions.posY,
+            status: this.gameData.gameTable[r].row[c].status,
+            name: this.gameData.gameTable[r].row[c].name,
+            type: this.gameData.gameTable[r].row[c].type,
+        });
+    }
+
+    endProcess() {
+        if(this.gameData.checkersCurrentPositions.keyName === 'black') {
+            this.oneStepIsFinished = true;
+        }else if(this.gameData.checkersCurrentPositions.keyName === 'white') {
+            this.oneStepIsFinished = false;
+        }
+    }
+
     getElementId() {
         let selectorName = document.querySelectorAll('.checker');
         let elementId = null;
@@ -200,16 +288,17 @@ class Game {
                     current[0].className = current[0].className.replace(" active", "");
                 }
                 if(selectorName[i].classList.contains('black')) {
-                    parent.blackCheckerId = elementId;
+                    parent.currentChecker = elementId;
                     parent.changePosition('black');
                 }else if(selectorName[i].classList.contains('white')) {
-                    parent.blackCheckerId = elementId;
+                    parent.currentChecker = elementId;
                     parent.changePosition('white');
                 }else if(selectorName[i].classList.contains('freeSeat')) {
-                    parent.blackCheckerId = elementId;
+                    parent.currentChecker = elementId;
                     parent.changePosition('freeSeat');
                 }
                 this.className += " active";
+                console.log(elementId)
                 return elementId
             });
         }
