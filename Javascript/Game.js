@@ -48,6 +48,7 @@ class Game {
         this.drawGameBackground();
         this.drawCheckers();
         this.getElementId();
+        alert(5);
       } catch(err) {
         alert(err)
       }
