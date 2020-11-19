@@ -45,6 +45,7 @@ class Game {
     }
 
     load() {
+      alert(5);
       try {
         alert(5);
         this.createGameArena();
@@ -593,5 +594,6 @@ class Game {
 const checker = new Game();
 
 window.addEventListener("load", function(){
+  alert(checker)
     checker.load();
 });
