@@ -221,7 +221,8 @@ class Game {
         const curPos = game.checkersCurrentPositions;
         for(let r = 0; r < gameTable.length; r++) {
             for(let c = 0; c < gameTable[r].row.length; c++) {
-                if(this.currentChecker === gameTable[r].row[c].id && this.canMovePiece(keyName, r, c)) {
+                // if(this.currentChecker === gameTable[r].row[c].id && this.canMovePiece(keyName, r, c)) {
+                if(this.currentChecker === gameTable[r].row[c].id) {
                     if(gameTable[r].row[c].isKing && gameTable[r].row[c].id === elementId && (keyName === 'black' && !this.oneStepIsFinished || keyName === 'white' && this.oneStepIsFinished)) {
                         game.currentKing = gameTable[r].row[c];
                         game.currentKing.row = r;
