@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: unset !important;
 }
 
 body {
@@ -8,25 +9,24 @@ body {
 	width: 100%;
 	height: 100vh;
 	position: relative;
+	font-family: sans-serif;
+	color: #fff;
+	font-size: 15px;
+}
+
+#checkers div {
+	box-sizing: border-box !important;
 }
 
 #odd-10,#odd-30, #odd-50, #odd-70{
 	background: transparent !important;
 }
 
-#app {
-	/*position: absolute;*/
-	/*width: 770px;*/
-	/*margin: auto;*/
-	/*left: 0;*/
-	/*right: 0;*/
-	/*top: 0;*/
-}
 
 .table {
-	display: flex;
-	width: 100%;
-	height: 70px;
+	/*display: flex;*/
+	/*width: 100%;*/
+	/*height: 70px;*/
 }
 
 .odd {
@@ -40,6 +40,9 @@ body {
 	height: 100%;
 	background: rgba(136, 191, 239, 0.8);
 }
+.freeSeat {
+	/*background: #333;*/
+}
 .freeSeat,
 .black,
 .white {
@@ -50,33 +53,39 @@ body {
 	cursor: pointer;
 }
 
+.black,
+.white {
+	box-sizing: border-box;
+
+}
+
+.black.king,
+.white.king {
+	/*border: 4px solid yellow;*/
+}
+
 .black-1 {
 	margin-left: 80px;
 }
 
 .white {
-	background: #fff;
+	/*background: #fff;*/
 }
 
 .black {
-	background: #b12f12;
-}
-
-.black:hover {
-	background: #e2310a;
+	/*background: #5A3218;*/
 }
 
 .white {
-	background: #786ac3;
+	/*background: #F3B24C;*/
 }
 
-.white:hover {
-	background: #8a7ae4;
-}
 .checker.active {
 	transform: scale(1.1);
 }
-
+.checker {
+	/*transition: .3s;*/
+}
 #table
 {
 	width:640px;
@@ -85,13 +94,13 @@ body {
 	position: relative;
 }
 
-#app {
+#game {
 	width:640px;
 	height:640px;
 	position: relative;
 }
 
-div
+#table div
 {
 	width: 80px;
 	height: 80px;
@@ -103,4 +112,176 @@ div
 	width: 100%;
 	height: 100%;
 	top: 0;
+}
+
+.currentAfterBlack {
+	transition: .3s;
+	position: absolute;
+	top: calc(50% - 150px);
+	left: calc(50% - 150px);
+	border-radius: 50%;
+	box-shadow:
+			inset 0 0 50px #e4efff,
+			inset 20px 0 80px #a693a6,
+			inset -20px 0 80px #0ff,
+			inset 20px 0 64px #c18bc1,
+			inset -20px 0 64px #0ff,
+			0 0 50px #fff,
+			-10px 0 80px #e1ace1,
+			10px 0 80px #0ff;
+}
+
+.currentAfterWhite {
+	transition: .3s;
+	position: absolute;
+	top: calc(50% - 150px);
+	left: calc(50% - 150px);
+	border-radius: 50%;
+	box-shadow:
+			inset 0 0 50px #e4efff,
+			inset 20px 0 80px #a693a6,
+			inset -20px 0 80px #0ff,
+			inset 20px 0 64px #c18bc1,
+			inset -20px 0 64px #0ff,
+			0 0 50px #fff,
+			-10px 0 80px #e1ace1,
+			10px 0 80px #0ff;
+}
+
+.white, .black {
+	transition: .2s ease-in-out;
+}
+
+.white.active, .black.active {
+	/*border: 4px solid #f4fc80;*/
+}
+
+article {
+	position: relative;
+	width: 30%;
+}
+
+form {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#app {
+	display: flex;
+	justify-content: space-around;
+}
+
+.playerWhite.fill {
+	height: 50%;
+}
+
+.input, .textarea {
+	width: 96% !important;
+}
+
+.file-cta, .file-name, .input, .pagination-ellipsis, .pagination-link, .pagination-next, .pagination-previous, .select select, .textarea {
+	padding-bottom: unset !important;
+	padding-right: unset !important;
+	padding-top: unset !important;
+}
+
+.playerBlack,
+.playerWhite {
+	display: none;
+}
+
+.playerBlack.fill,
+.playerWhite.fill {
+	display: block;
+}
+.playerBlackName,
+.playerWhiteName {
+	position: relative;
+	padding-bottom: 10px;
+}
+.playerWhiteName.current:after,
+.playerBlackName.current:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	left: -15px;
+	top: 8px;
+	background: green;
+	border-radius: 50%;
+}
+
+.king {
+	/*border: 4px solid #d9dea6;*/
+}
+
+.king {
+	background-color: transparent !important;
+}
+
+.king:before {
+	content: '';
+	position: absolute;
+	left: -8px;
+	top: -9px;
+	transform-origin: left top !important;
+	display: block !important;
+	width: 187% !important;
+	height: 187% !important;
+	background: url(../images/checker-1.png) no-repeat -7px -124px !important;
+}
+
+.black.king:before {
+  background-position: -135px -127px !important;
+}
+
+.black:before {
+	transform: scale(0.7);
+	content: '';
+	transform-origin: left top;
+	display: block;
+	width: 165%;
+	height: 155%;
+	background: url(../images/checker-1.png) no-repeat -145px -13px;
+}
+
+.white:before {
+	transform: scale(0.7);
+	content: '';
+	transform-origin: left top;
+	display: block;
+	width: 165%;
+	height: 155%;
+	background: url(../images/checker-1.png) no-repeat -17px -12px;
+}
+
+.checker.freeSeat:before,
+.king.freeSeat:before {
+	content: '';
+	background: none !important;
+}
+
+.row, .columnNumbers {
+	position: absolute;
+}
+
+.row div, .columnNumbers div {
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	color: #fff;
+}
+
+.columnNumbers {
+	left: -65px;
+}
+
+.row {
+	width: 640px;
+	height: 80px;
+	display: flex;
+	bottom: 55px;
 }

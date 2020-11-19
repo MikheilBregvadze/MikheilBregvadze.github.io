@@ -4,16 +4,88 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="./Css/Style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
 <body>
-
 	<div id="app">
-		<div id="table"></div>
-		<div id="checkers"></div>
+		<div id="game">
+			<div class="columnNumbers">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+				<div>7</div>
+				<div>8</div>
+			</div>
+			<div id="table"></div>
+			<div id="checkers"></div>
+		</div>
+
+<!--		<article class="box">-->
+<!--			<div class="playerWhite">-->
+<!--				<div class="playerWhiteName player-white-active"></div>-->
+<!--				<table class="table is-striped is-bordered">-->
+<!--					<thead>-->
+<!--						<tr>-->
+<!--							<th>Count of steps</th>-->
+<!--							<th>Kill checker</th>-->
+<!--						</tr>-->
+<!--					</thead>-->
+<!--					<tbody>-->
+<!--						<tr>-->
+<!--							<td class="step-count-white">0</td>-->
+<!--							<td class="killCheckerCount kill-checker-white-count">0</td>-->
+<!--						</tr>-->
+<!--					</tbody>-->
+<!--				</table>-->
+<!--			</div>-->
+<!--			<div class="form-control">-->
+<!--				<form action="" id="userForm">-->
+<!--					<div class="form-group">-->
+<!--						<div class="field">-->
+<!--							<div class="control">-->
+<!--								<input id="userName" class="input is-primary" type="text" placeholder="Enter Reds Name">-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<button id="saveinfo" class="button is-primary is-light">Save</button>-->
+<!--					</div>-->
+<!--				</form>-->
+<!--			</div>-->
+<!--			<div class="playerBlack">-->
+<!--				<div class="playerBlackName current player-black-active"></div>-->
+<!--				<table class="table is-bordered">-->
+<!--					<thead>-->
+<!--						<tr>-->
+<!--							<th>Count of steps</th>-->
+<!--							<th>Kill checker</th>-->
+<!--						</tr>-->
+<!--					</thead>-->
+<!--					<tbody>-->
+<!--						<tr>-->
+<!--							<td class="step-count-black">0</td>-->
+<!--							<td class="killCheckerCount kill-checker-black-count">0</td>-->
+<!--						</tr>-->
+<!--					</tbody>-->
+<!--				</table>-->
+<!--			</div>-->
+<!--		</article>-->
+		<div class="row">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+		</div>
 	</div>
 
 <!--	<script src="./Data/Data.js"></script>-->
-	<script src="./Javascript/Main.js"></script>
-
+	<script src="Javascript/Player.js"></script>
+	<script src="./Javascript/helper.js"></script>
+	<script src="./Javascript/Game.js"></script>
 </body>
 </html>
