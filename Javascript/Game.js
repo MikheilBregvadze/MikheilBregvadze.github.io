@@ -103,7 +103,7 @@ class Game {
 
     drawGameBackground() {
         for (let i = 0; i < 64; i++){
-            document.getElementById("table").appendChild(document.createElement("div")).style.backgroundColor = parseInt((i / 8) + i + "") % 2 === 0 ? '#EEC588' : '#4A2317';
+            document.getElementById("table").appendChild(document.createElement("div")).style.backgroundColor = parseInt((i / 8) + i + "") % 2 === 0 ? '#4A2317' : '#EEC588';
         }
     }
 

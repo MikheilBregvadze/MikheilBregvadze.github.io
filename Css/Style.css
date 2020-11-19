@@ -67,9 +67,16 @@ body {
 }
 
 #game {
-	width:640px;
-	height:640px;
-	position: relative;
+  margin-top: 25px;
+	width: 640px;
+	height: 640px;
+  position: relative;
+  transform-origin: top left;
+}
+
+#game-div {
+  width: 100%;
+  position: absolute;
 }
 
 #table div
@@ -137,6 +144,8 @@ form {
 }
 
 #app {
+  width: 100%;
+  height: 100%;
 	display: flex;
 	justify-content: space-around;
 }
@@ -227,25 +236,37 @@ form {
 	background: none !important;
 }
 
-.row, .columnNumbers {
-	position: absolute;
+.rowNumbers, .columnNumbers {
+  position: absolute;
+  z-index: 5;
 }
 
-.row div, .columnNumbers div {
+.rowNumbers div, .columnNumbers div {
 	width: 80px;
 	height: 80px;
 	line-height: 80px;
 	text-align: center;
-	color: #fff;
+	color: #ECB77C;
 }
 
 .columnNumbers {
-	left: -65px;
+	left: -50px;
 }
 
-.row {
+.rowNumbers {
 	width: 640px;
 	height: 80px;
 	display: flex;
-	bottom: 55px;
+	bottom: -51px;
 }
+
+#table::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 20px solid #5C2916;
+  left: -20px;
+  top: -20px;
+}
+
