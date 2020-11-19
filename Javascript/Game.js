@@ -43,10 +43,14 @@ class Game {
     ifKingNotKill = [];
 
     load() {
+      try {
         this.createGameArena();
         this.drawGameBackground();
         this.drawCheckers();
         this.getElementId();
+      } catch(err) {
+        alert(err)
+      }
     }
 
     createGameArena() {
