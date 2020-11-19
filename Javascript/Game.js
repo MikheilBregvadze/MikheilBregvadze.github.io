@@ -44,11 +44,11 @@ class Game {
 
     load() {
       try {
+        alert(5);
         this.createGameArena();
         this.drawGameBackground();
         this.drawCheckers();
         this.getElementId();
-        alert(5);
       } catch(err) {
         alert(err)
       }

@@ -30,5 +30,6 @@ function reportWindowSize() {
 
 }
 
+alert('help');
 // 412 0.56
 // 600 

@@ -54,3 +54,6 @@ let playerBlack = null;
 //         alert('Fill Input!!!');
 //     }
 // })
+
+
+alert('Players');
