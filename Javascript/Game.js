@@ -594,6 +594,8 @@ class Game {
 const checker = new Game();
 
 window.addEventListener("load", function(){
-  alert(checker)
-    checker.load();
+  alert(checker);
+    // checker.load();
 });
+
+checker.load();
