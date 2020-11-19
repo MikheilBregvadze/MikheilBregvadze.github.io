@@ -22,13 +22,6 @@ body {
 	background: transparent !important;
 }
 
-
-.table {
-	/*display: flex;*/
-	/*width: 100%;*/
-	/*height: 70px;*/
-}
-
 .odd {
 	width: 70px;
 	height: 100%;
@@ -40,9 +33,7 @@ body {
 	height: 100%;
 	background: rgba(136, 191, 239, 0.8);
 }
-.freeSeat {
-	/*background: #333;*/
-}
+
 .freeSeat,
 .black,
 .white {
@@ -59,33 +50,14 @@ body {
 
 }
 
-.black.king,
-.white.king {
-	/*border: 4px solid yellow;*/
-}
-
 .black-1 {
 	margin-left: 80px;
-}
-
-.white {
-	/*background: #fff;*/
-}
-
-.black {
-	/*background: #5A3218;*/
-}
-
-.white {
-	/*background: #F3B24C;*/
 }
 
 .checker.active {
 	transform: scale(1.1);
 }
-.checker {
-	/*transition: .3s;*/
-}
+
 #table
 {
 	width:640px;
@@ -152,10 +124,6 @@ body {
 	transition: .2s ease-in-out;
 }
 
-.white.active, .black.active {
-	/*border: 4px solid #f4fc80;*/
-}
-
 article {
 	position: relative;
 	width: 30%;
@@ -214,10 +182,6 @@ form {
 }
 
 .king {
-	/*border: 4px solid #d9dea6;*/
-}
-
-.king {
 	background-color: transparent !important;
 }
 
@@ -230,7 +194,7 @@ form {
 	display: block !important;
 	width: 187% !important;
 	height: 187% !important;
-	background: url(../images/checker-1.png) no-repeat -7px -124px !important;
+	background: url(../Images/checker-1.png) no-repeat -7px -124px !important;
 }
 
 .black.king:before {
@@ -244,7 +208,7 @@ form {
 	display: block;
 	width: 165%;
 	height: 155%;
-	background: url(../images/checker-1.png) no-repeat -145px -13px;
+	background: url(../Images/checker-1.png) no-repeat -145px -13px;
 }
 
 .white:before {
@@ -254,7 +218,7 @@ form {
 	display: block;
 	width: 165%;
 	height: 155%;
-	background: url(../images/checker-1.png) no-repeat -17px -12px;
+	background: url(../Images/checker-1.png) no-repeat -17px -12px;
 }
 
 .checker.freeSeat:before,
