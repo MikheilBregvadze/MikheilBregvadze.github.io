@@ -25,7 +25,7 @@ function reportWindowSize() {
   } else {
     document.getElementById('game').style.transform = `scale(1)`;
     document.getElementById('game-div').style.left = `auto`;
-    document.getElementById('game-div').style.marginLeft = `auto`;
+    document.getElementById('game-div').style.margin = `auto`;
   }
 
 }

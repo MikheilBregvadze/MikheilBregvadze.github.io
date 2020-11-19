@@ -77,7 +77,7 @@ body {
 
 #game-div {
   width: 640px;
-  position: absolute;
+  position: relative;
 }
 
 #table div
@@ -373,16 +373,16 @@ body {
           transform-origin: top left;
 }
 
-#game-div {
-  width: 640px;
-  position: absolute;
+#table {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #table div
 {
 	width: 80px;
 	height: 80px;
-	float:left;
+	/* float:left; */
 }
 
 #checkers {
@@ -616,6 +616,7 @@ form {
 
 @media only screen and (max-width: 705px) {
   #game-div {
+    position: absolute;
     width: 100%;
   }
 }
