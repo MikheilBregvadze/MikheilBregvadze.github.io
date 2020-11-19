@@ -22,6 +22,10 @@ function reportWindowSize() {
     document.getElementById('game').style.transform = `scale(${gameScale})`;
     document.getElementById('game-div').style.left = `${(windowWidth / 2) / gameScale}px`;
     document.getElementById('game-div').style.marginLeft = `-346px`;
+  } else {
+    document.getElementById('game').style.transform = `scale(1)`;
+    document.getElementById('game-div').style.left = `auto`;
+    document.getElementById('game-div').style.marginLeft = `auto`;
   }
 
 }

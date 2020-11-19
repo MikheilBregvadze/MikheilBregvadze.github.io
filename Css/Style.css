@@ -75,7 +75,7 @@ body {
 }
 
 #game-div {
-  width: 100%;
+  width: 640px;
   position: absolute;
 }
 
@@ -270,3 +270,10 @@ form {
   top: -20px;
 }
 
+
+
+@media only screen and (max-width: 705px) {
+  #game-div {
+    width: 100%;
+  }
+}
