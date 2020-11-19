@@ -80,11 +80,16 @@ body {
   position: relative;
 }
 
+#table {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #table div
 {
 	width: 80px;
 	height: 80px;
-	float:left;
+	/* float:left; */
 }
 
 #checkers {
