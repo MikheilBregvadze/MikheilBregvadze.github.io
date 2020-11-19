@@ -45,15 +45,13 @@ class Game {
     }
 
     load() {
-      alert(5);
       try {
-        alert(5);
         this.createGameArena();
         this.drawGameBackground();
         this.drawCheckers();
         this.getElementId();
       } catch(err) {
-        alert(err)
+        console.log(err);
       }
     }
 
@@ -594,8 +592,7 @@ class Game {
 const checker = new Game();
 
 window.addEventListener("load", function(){
-  alert(checker);
-    // checker.load();
+  
 });
 
 checker.load();
