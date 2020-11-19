@@ -38,9 +38,11 @@ let game = {
 let counterId = 0;
 
 class Game {
-    oneStepIsFinished = true ;
-    isAlsoKillingPlace = [];
-    ifKingNotKill = [];
+    constructor() {
+      this.oneStepIsFinished = true ;
+      this.isAlsoKillingPlace = [];
+      this.ifKingNotKill = [];
+    }
 
     load() {
       try {
