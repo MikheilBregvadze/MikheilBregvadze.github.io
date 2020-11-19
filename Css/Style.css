@@ -278,3 +278,344 @@ form {
     width: 100%;
   }
 }
+
+
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: unset !important;
+	        box-sizing: unset !important;
+}
+
+body {
+	background-image: -webkit-gradient(linear, left top, right bottom, from(#0a171b), to(#15242f));
+	background-image: -o-linear-gradient(top left, #0a171b, #15242f);
+	background-image: linear-gradient(to bottom right, #0a171b, #15242f);
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	font-family: sans-serif;
+	color: #fff;
+  font-size: 15px;
+  overflow: hidden;
+}
+
+#checkers div {
+	-webkit-box-sizing: border-box !important;
+	        box-sizing: border-box !important;
+}
+
+#odd-10,#odd-30, #odd-50, #odd-70{
+	background: transparent !important;
+}
+
+.odd {
+	width: 70px;
+	height: 100%;
+	background: transparent;
+}
+
+.even {
+	width: 70px;
+	height: 100%;
+	background: rgba(136, 191, 239, 0.8);
+}
+
+.freeSeat,
+.black,
+.white {
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.black,
+.white {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+
+}
+
+.black-1 {
+	margin-left: 80px;
+}
+
+.checker.active {
+	-webkit-transform: scale(1.1);
+	    -ms-transform: scale(1.1);
+	        transform: scale(1.1);
+}
+
+#table
+{
+	width:640px;
+	height:640px;
+	border:1px solid black;
+	position: relative;
+}
+
+#game {
+  margin-top: 25px;
+	width: 640px;
+	height: 640px;
+  position: relative;
+  -webkit-transform-origin: top left;
+      -ms-transform-origin: top left;
+          transform-origin: top left;
+}
+
+#game-div {
+  width: 640px;
+  position: absolute;
+}
+
+#table div
+{
+	width: 80px;
+	height: 80px;
+	float:left;
+}
+
+#checkers {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+
+.currentAfterBlack {
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+	position: absolute;
+	top: calc(50% - 150px);
+	left: calc(50% - 150px);
+	border-radius: 50%;
+	-webkit-box-shadow:
+			inset 0 0 50px #e4efff,
+			inset 20px 0 80px #a693a6,
+			inset -20px 0 80px #0ff,
+			inset 20px 0 64px #c18bc1,
+			inset -20px 0 64px #0ff,
+			0 0 50px #fff,
+			-10px 0 80px #e1ace1,
+			10px 0 80px #0ff;
+	        box-shadow:
+			inset 0 0 50px #e4efff,
+			inset 20px 0 80px #a693a6,
+			inset -20px 0 80px #0ff,
+			inset 20px 0 64px #c18bc1,
+			inset -20px 0 64px #0ff,
+			0 0 50px #fff,
+			-10px 0 80px #e1ace1,
+			10px 0 80px #0ff;
+}
+
+.currentAfterWhite {
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+	position: absolute;
+	top: calc(50% - 150px);
+	left: calc(50% - 150px);
+	border-radius: 50%;
+	-webkit-box-shadow:
+			inset 0 0 50px #e4efff,
+			inset 20px 0 80px #a693a6,
+			inset -20px 0 80px #0ff,
+			inset 20px 0 64px #c18bc1,
+			inset -20px 0 64px #0ff,
+			0 0 50px #fff,
+			-10px 0 80px #e1ace1,
+			10px 0 80px #0ff;
+	        box-shadow:
+			inset 0 0 50px #e4efff,
+			inset 20px 0 80px #a693a6,
+			inset -20px 0 80px #0ff,
+			inset 20px 0 64px #c18bc1,
+			inset -20px 0 64px #0ff,
+			0 0 50px #fff,
+			-10px 0 80px #e1ace1,
+			10px 0 80px #0ff;
+}
+
+.white, .black {
+	-webkit-transition: .2s ease-in-out;
+	-o-transition: .2s ease-in-out;
+	transition: .2s ease-in-out;
+}
+
+article {
+	position: relative;
+	width: 30%;
+}
+
+form {
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+	/* display: flex;
+	justify-content: space-around; */
+}
+
+.playerWhite.fill {
+	height: 50%;
+}
+
+.input, .textarea {
+	width: 96% !important;
+}
+
+.file-cta, .file-name, .input, .pagination-ellipsis, .pagination-link, .pagination-next, .pagination-previous, .select select, .textarea {
+	padding-bottom: unset !important;
+	padding-right: unset !important;
+	padding-top: unset !important;
+}
+
+.playerBlack,
+.playerWhite {
+	display: none;
+}
+
+.playerBlack.fill,
+.playerWhite.fill {
+	display: block;
+}
+.playerBlackName,
+.playerWhiteName {
+	position: relative;
+	padding-bottom: 10px;
+}
+.playerWhiteName.current:after,
+.playerBlackName.current:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	left: -15px;
+	top: 8px;
+	background: green;
+	border-radius: 50%;
+}
+
+.king {
+	background-color: transparent !important;
+}
+
+.king:before {
+	content: '';
+	position: absolute;
+	left: -8px;
+	top: -9px;
+	-webkit-transform-origin: left top !important;
+	    -ms-transform-origin: left top !important;
+	        transform-origin: left top !important;
+	display: block !important;
+	width: 187% !important;
+	height: 187% !important;
+	background: url(../Images/checker-1.png) no-repeat -7px -124px !important;
+}
+
+.black.king:before {
+  background-position: -135px -127px !important;
+}
+
+.black:before {
+	-webkit-transform: scale(0.7);
+	    -ms-transform: scale(0.7);
+	        transform: scale(0.7);
+	content: '';
+	-webkit-transform-origin: left top;
+	    -ms-transform-origin: left top;
+	        transform-origin: left top;
+	display: block;
+	width: 165%;
+	height: 155%;
+	background: url(../Images/checker-1.png) no-repeat -145px -13px;
+}
+
+.white:before {
+	-webkit-transform: scale(0.7);
+	    -ms-transform: scale(0.7);
+	        transform: scale(0.7);
+	content: '';
+	-webkit-transform-origin: left top;
+	    -ms-transform-origin: left top;
+	        transform-origin: left top;
+	display: block;
+	width: 165%;
+	height: 155%;
+	background: url(../Images/checker-1.png) no-repeat -17px -12px;
+}
+
+.checker.freeSeat:before,
+.king.freeSeat:before {
+	content: '';
+	background: none !important;
+}
+
+.rowNumbers, .columnNumbers {
+  position: absolute;
+  z-index: 5;
+}
+
+.rowNumbers div, .columnNumbers div {
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	color: #ECB77C;
+}
+
+.columnNumbers {
+	left: -50px;
+}
+
+.rowNumbers {
+	width: 640px;
+	height: 80px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	bottom: -51px;
+}
+
+#table::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 20px solid #5C2916;
+  left: -20px;
+  top: -20px;
+}
+
+
+
+@media only screen and (max-width: 705px) {
+  #game-div {
+    width: 100%;
+  }
+}
