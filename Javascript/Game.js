@@ -121,8 +121,7 @@ class Checker {
                 }
                 if(gameInfo.gameTable[row].row[column].type === 1) {
                     if (type === 'white') {
-                        if((table[row].row[column].name === "white" && table[row - 1].row[column - 1].name === "black") && table[row - 2].row[column - 2].name === "freeSeat") {
-                            console.log(gameInfo.gameTable[row].row[column]);
+                        if((table[row].row[column].name === "white" && table[row - 1].row[column - 1].name === "black") && table[row - 2].row[column - 2].name === "freeSeat" && column > 3) {
                             arr.push(gameInfo.gameTable[row].row[column]);
                         }
                         if((table[row].row[column].name === "white" && table[row - 1].row[column + 1].name === "black") && table[row - 2].row[column + 2].name === "freeSeat") {
@@ -191,7 +190,7 @@ class Checker {
                 element.classList.add("active");
                 const arr = [];
 
-                if(table[row - 1].row[column - 1].name === "black" && table[row - 2].row[column - 2].name === "freeSeat") {
+                if(table[row - 1].row[column - 1].name === "black" && table[row - 2].row[column - 2].name === "freeSeat" && column > 3) {
                     arr.push({row: row - 2, column: column - 2});
                 }
                 if(table[row - 1].row[column + 1].name === "black" && table[row - 2].row[column + 2].name === "freeSeat") {
