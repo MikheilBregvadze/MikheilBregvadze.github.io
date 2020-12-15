@@ -128,12 +128,29 @@ class Checker {
                             arr.push(gameInfo.gameTable[row].row[column]);
                             console.log(gameInfo.gameTable[row].row[column]);
                         }
+
+                        if((table[row].row[column].name === "white" && table[row + 1].row[column - 1].name === "black") && table[row + 2].row[column - 2].name === "freeSeat" && column > 3) {
+                            arr.push(gameInfo.gameTable[row].row[column]);
+                            console.log(gameInfo.gameTable[row].row[column]);
+                        }
+                        if((table[row].row[column].name === "white" && table[row + 1].row[column + 1].name === "black") && table[row + 2].row[column + 2].name === "freeSeat") {
+                            arr.push(gameInfo.gameTable[row].row[column]);
+                            console.log(gameInfo.gameTable[row].row[column]);
+                        }
                     } else if (type === 'black') {
                         if((table[row].row[column].name === "black" && table[row + 1].row[column - 1].name === "white") && table[row + 2].row[column - 2].name === "freeSeat" && column > 3) {
                             arr.push(gameInfo.gameTable[row].row[column]);
                             console.log(gameInfo.gameTable[row].row[column]);
                         }
                         if((table[row].row[column].name === "black" && table[row + 1].row[column + 1].name === "white") && table[row + 2].row[column + 2].name === "freeSeat") {
+                            arr.push(gameInfo.gameTable[row].row[column]);
+                            console.log(gameInfo.gameTable[row].row[column]);
+                        }
+
+                        if((table[row].row[column].name === "black" && table[row - 1].row[column - 1].name === "white") && table[row - 2].row[column - 2].name === "freeSeat" && column > 3) {
+                            arr.push(gameInfo.gameTable[row].row[column]);
+                        }
+                        if((table[row].row[column].name === "black" && table[row - 1].row[column + 1].name === "white") && table[row - 2].row[column + 2].name === "freeSeat") {
                             arr.push(gameInfo.gameTable[row].row[column]);
                             console.log(gameInfo.gameTable[row].row[column]);
                         }
@@ -187,8 +204,10 @@ class Checker {
                     this.removeActiveClassFreeSeat('currentAfterWhite');
                     return;
                 }
+
                 element.classList.add("active");
-                const arr = [];
+                
+                let arr = [];
 
                 if(table[row - 1].row[column - 1].name === "black" && table[row - 2].row[column - 2].name === "freeSeat" && column > 3) {
                     arr.push({row: row - 2, column: column - 2});
@@ -202,6 +221,26 @@ class Checker {
                     this.addActiveClassNextPositions(arr[i].row, arr[i].column, 'currentAfterWhite');
                     if(i === arr.length - 1) return;
                 }
+
+                // TODO: Add back kill only, its must test ! >> start <<
+
+
+                if(table[row + 1].row[column - 1].name === "black" && table[row + 2].row[column - 2].name === "freeSeat" && column > 3) {
+                    arr = [];
+                    arr.push({row: row + 2, column: column - 2});
+                }
+
+                if(table[row + 1].row[column + 1].name === "black" && table[row + 2].row[column + 2].name === "freeSeat") {
+                    arr.push({row: row + 2, column: column + 2});
+                }
+
+                this.removeActiveClassFreeSeat('currentAfterWhite');
+                for(let i = 0; i < arr.length; i++) {
+                    this.addActiveClassNextPositions(arr[i].row, arr[i].column, 'currentAfterWhite');
+                    if(i === arr.length - 1) return;
+                }
+
+                // TODO: << End >>
 
                 if(table[row - 1].row[column - 1].name === "freeSeat") {
                     arr.push({row: row - 1, column: column - 1});
@@ -223,7 +262,7 @@ class Checker {
                     return;
                 }
                 element.classList.add("active");    
-                const arr = [];
+                let arr = [];
 
                 if(table[row + 1].row[column - 1].name === "white" && table[row + 2].row[column - 2].name === "freeSeat" && column > 3) {
                     arr.push({row: row + 2, column: column - 2});
@@ -238,6 +277,25 @@ class Checker {
                     this.addActiveClassNextPositions(arr[i].row, arr[i].column, 'currentAfterWhite');
                     if(i === arr.length - 1) return;
                 }
+
+                // TODO: Add back kill only, its must test ! >> start <<
+
+                if(table[row - 1].row[column - 1].name === "white" && table[row - 2].row[column - 2].name === "freeSeat" && column > 3) {
+                    arr = [];
+                    arr.push({row: row - 2, column: column - 2});
+                }
+                if(table[row - 1].row[column + 1].name === "white" && table[row - 2].row[column + 2].name === "freeSeat") {
+                    if(arr.length <= 0) 
+                    arr.push({row: row - 2, column: column + 2});
+                }
+
+                this.removeActiveClassFreeSeat('currentAfterWhite');
+
+                for(let i = 0; i < arr.length; i++) {
+                    this.addActiveClassNextPositions(arr[i].row, arr[i].column, 'currentAfterWhite');
+                    if(i === arr.length - 1) return;
+                }
+                // TODO: << End >>
 
                 if(table[row + 1].row[column - 1].name === "freeSeat") {
                     arr.push({row: row + 1, column: column - 1});
