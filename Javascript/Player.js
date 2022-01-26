@@ -30,7 +30,6 @@ class User {
 let playerWhite = null;
 let playerBlack = null;
 
-// Input manipulation
 
 // document.getElementById('userForm').addEventListener('submit', (e) => {
 //     e.preventDefault();
