@@ -41,24 +41,19 @@ class View {
         let checker = document.querySelectorAll('.checker');
         for(let i = 0; i < checker.length; i++) {
             checker[i].addEventListener('click', function() {
-                let current = document.getElementsByClassName("active");
-                if (current.length > 0) {
-                    current[0].className = current[0].className.replace(" active", "");
-                }
-                checker[i].classList.add('active');
-                let row = parseFloat(checker[i].getAttribute('data-row'));
-                let column = parseFloat(checker[i].getAttribute('data-column'));
+                let r = parseFloat(checker[i].getAttribute('data-row'));
+                let c = parseFloat(checker[i].getAttribute('data-column'));
                 let isKing = parseFloat(checker[i].getAttribute('data-king'));   
-                let player = parseFloat(checker[i].getAttribute('data-player'));   
-                handler({row, column, isKing: !!isKing, player});
+                let type = parseFloat(checker[i].getAttribute('data-player'));   
+                handler({r, c, isKing: !!isKing, type});
             })
         }
     }
 
     drawActiveFreeSeats(activeFreeSeats) {
         console.log(activeFreeSeats);
-        let element = document.getElementById(id)
-        if(element) document.getElementById(id).classList.add('currentAfterWhite');
+        // // let element = document.getElementById(id)
+        // if(element) document.getElementById(id).classList.add('currentAfterWhite');
     }
 
     createElement(tag, className) {
@@ -77,9 +72,5 @@ class View {
         for(let key in attrs) {
             el.setAttribute(key, attrs[key]);
         }
-    }
-
-    init() {
-        console.log(this.app);
     }
 }

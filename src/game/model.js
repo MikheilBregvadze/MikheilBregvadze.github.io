@@ -23,13 +23,13 @@ class Model {
             for(let c = 0; c < 12; c++) {
                 if(r > 1 && r < 5 && c % 2 === r % 2) {
                     this.boardInfo[r].row.push({
-                    name: 'black',
-                    id: "black-" + r + c,
-                    posX: 8 + (c - 2) * 80,
-                    posY: 8 + (r - 2) * 80,
-                    type: 1,
-                    status: "off",
-                    isKing: false
+                        name: 'black',
+                        id: "black-" + r + c,
+                        posX: 8 + (c - 2) * 80,
+                        posY: 8 + (r - 2) * 80,
+                        type: 1,
+                        status: "off",
+                        isKing: false
                     })
                 } else if (r < 5){
                     this.boardInfo[r].row.push({
@@ -38,13 +38,13 @@ class Model {
                     })
                 } else if (r > 6 && r < 10 && c % 2 === r % 2) {
                     this.boardInfo[r].row.push({
-                    name: 'white',
-                    id: "white-" + r + c,
-                    posX: 8 + (c - 2) * 80,
-                    posY: 330 + (r - 6) * 80,
-                    type: 1,
-                    status: "off",
-                    isKing: false
+                        name: 'white',
+                        id: "white-" + r + c,
+                        posX: 8 + (c - 2) * 80,
+                        posY: 330 + (r - 6) * 80,
+                        type: 0,
+                        status: "off",
+                        isKing: false
                     })
                 } else {
                     if(c % 2 === r % 2 && c < 10 && r < 9) {
@@ -53,14 +53,14 @@ class Model {
                         id: "free-" + r + c,
                         posX: 8 + (c - 2) * 80,
                         posY: 330 + (r - 6) * 80,
-                        type: 0,
+                        type: 2,
                         status: "off",
                         isKing: false
                     })
                     }else {
                         this.boardInfo[r].row.push({
                             id: r.toString(),
-                            type: 2
+                            type: 3
                         })
                     }
                 }
@@ -78,8 +78,19 @@ class Model {
 
     setSelectedCheckerPosition(checkerInfo) {
         this.checkerInfo = checkerInfo;
-        this.boardInfo = null;
-        this.activeFreeSeats = null;
-        this._commit()
+
+        this.checkIfCheckerCanMove(checkerInfo);
+        this.activeFreeSeats = [checkerInfo];
+    }
+
+    checkIfCheckerCanMove(checker) {
+        console.log(this.boardInfo[checker.r])
+        if(checker.type === 0) { // 'White Checker Turn'
+            // console.log(this.boardInfo[checker.r - 1].row[checker.c - 1].type, this.boardInfo[checker.r - 1].row[checker.c - 1].id);
+
+            if(this.boardInfo[checker.r - 1].row[checker.c - 1].type === 2) {
+                this.activeFreeSeats.push(this.boardInfo[checker.r - 1].row[checker.c - 1].id);
+            }
+        }
     }
 }
