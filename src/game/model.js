@@ -9,6 +9,7 @@ class Model {
             column: 0, 
             isKing: false
         };
+        this.moveChecker = [];
     }
 
     init() {
@@ -76,21 +77,72 @@ class Model {
         this.bindBoardChanged(1111);
     }
 
-    setSelectedCheckerPosition(checkerInfo) {
-        this.checkerInfo = checkerInfo;
-
-        this.checkIfCheckerCanMove(checkerInfo);
-        this.activeFreeSeats = [checkerInfo];
+    setSelectedCheckerPosition(checker) {
+        const checkerType = this.boardInfo[checker.r].row[checker.c].type;
+        if(checkerType !== 2) {
+            this.checkerInfo = checker;
+            this.checkIfCheckerCanMove(checker, checkerType);
+        } else {
+            this.changePositions(checker, checkerType);
+        }
     }
 
-    checkIfCheckerCanMove(checker) {
-        console.log(this.boardInfo[checker.r])
-        if(checker.type === 0) { // 'White Checker Turn'
-            // console.log(this.boardInfo[checker.r - 1].row[checker.c - 1].type, this.boardInfo[checker.r - 1].row[checker.c - 1].id);
+    changePositions(checker, checkerType) {
+        if(checkerType !== 2) return;
+
+        for(let i = 0; i < this.activeFreeSeats.length; i++) {
+            if(this.activeFreeSeats[i].id === `free-${checker.r}${checker.c}`) {
+                this.playerTurn = this.boardInfo[this.checkerInfo.r].row[this.checkerInfo.c].type === 0 ? 1 : 0;
+                const [ freeSeatX, freeSeatY ] = [this.activeFreeSeats[i].posX, this.activeFreeSeats[i].posY];
+
+                const currentChecker = this.boardInfo[this.checkerInfo.r].row[this.checkerInfo.c];
+                
+                this.boardInfo[this.checkerInfo.r].row[this.checkerInfo.c] = this.activeFreeSeats[i];
+                this.boardInfo[checker.r].row[checker.c].posX = currentChecker.posX;
+                this.boardInfo[checker.r].row[checker.c].posY = currentChecker.posY;
+                this.boardInfo[checker.r].row[checker.c].id = 'free-' + this.checkerInfo.r + this.checkerInfo.c;
+
+                this.boardInfo[checker.r].row[checker.c] = currentChecker;
+                this.boardInfo[checker.r].row[checker.c].posX = freeSeatX;
+                this.boardInfo[checker.r].row[checker.c].posY = freeSeatY;
+                const type = this.boardInfo[checker.r].row[checker.c].type === 0 ? 'white' : 'black';
+                this.boardInfo[checker.r].row[checker.c].id = type + '-' + checker.r + checker.c;
+
+                this.boardInfo[checker.r].row[checker.c]['r'] = this.checkerInfo.r;
+                this.boardInfo[checker.r].row[checker.c]['c'] = this.checkerInfo.c;
+
+                this.boardInfo[this.checkerInfo.r].row[this.checkerInfo.c]['r'] = checker.r;
+                this.boardInfo[this.checkerInfo.r].row[this.checkerInfo.c]['c'] = checker.c;
+
+                this.moveChecker.push(this.boardInfo[checker.r].row[checker.c], this.boardInfo[this.checkerInfo.r].row[this.checkerInfo.c]);
+            }
+        }
+    }
+
+    checkIfCheckerCanMove(checker, checkerType) {
+        this.moveChecker = [];
+        this.activeFreeSeats = [];
+
+        if((checkerType === 0) && (this.playerTurn === 0)) { // 'White Checker Turn'
 
             if(this.boardInfo[checker.r - 1].row[checker.c - 1].type === 2) {
-                this.activeFreeSeats.push(this.boardInfo[checker.r - 1].row[checker.c - 1].id);
+                this.activeFreeSeats.push(this.boardInfo[checker.r - 1].row[checker.c - 1]);
             }
+
+            if(this.boardInfo[checker.r - 1].row[checker.c + 1].type === 2) {
+                this.activeFreeSeats.push(this.boardInfo[checker.r - 1].row[checker.c + 1]);
+            }
+
+        } else if((checkerType === 1) && (this.playerTurn === 1)) { // 'Black Checker Turn'
+
+            if(this.boardInfo[checker.r + 1].row[checker.c - 1].type === 2) {
+                this.activeFreeSeats.push(this.boardInfo[checker.r + 1].row[checker.c - 1]);
+            }
+
+            if(this.boardInfo[checker.r + 1].row[checker.c + 1].type === 2) {
+                this.activeFreeSeats.push(this.boardInfo[checker.r + 1].row[checker.c + 1]);
+            }
+
         }
     }
 }

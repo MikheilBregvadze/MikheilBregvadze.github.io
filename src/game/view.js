@@ -44,16 +44,43 @@ class View {
                 let r = parseFloat(checker[i].getAttribute('data-row'));
                 let c = parseFloat(checker[i].getAttribute('data-column'));
                 let isKing = parseFloat(checker[i].getAttribute('data-king'));   
-                let type = parseFloat(checker[i].getAttribute('data-player'));   
-                handler({r, c, isKing: !!isKing, type});
+                let player = parseFloat(checker[i].getAttribute('data-player'));   
+                handler({r, c, isKing: !!isKing, player});
             })
         }
     }
 
     drawActiveFreeSeats(activeFreeSeats) {
-        console.log(activeFreeSeats);
-        // // let element = document.getElementById(id)
-        // if(element) document.getElementById(id).classList.add('currentAfterWhite');
+        if(!activeFreeSeats) return;
+        var list = document.querySelectorAll(".freeSeat.activeFreeSeat");
+        if(list.length > 0) {
+            for(let i = 0; i < list.length; i++) {
+                list[i].classList.remove('activeFreeSeat');
+            }
+        }
+        for(let i = 0; i < activeFreeSeats.length; i++) {// freeSeat activeFreeSeat
+            let element = document.getElementById(activeFreeSeats[i].id)
+            if(element) element.classList.add('activeFreeSeat');
+        }
+    }
+
+    drawCheckerMove(info) {
+        console.log(info);
+        if(info.length === 0) return;
+        const type = info[0].type === 0 ? 'white' : 'black';
+
+        let checker = document.getElementById(type + '-' + info[0].r + info[0].c);
+        let freeSeat = document.getElementById('free-' + info[1].r + info[1].c);
+
+        checker.style.left = info[0].posX + 'px';
+        checker.style.top = info[0].posY + 'px';
+
+        this.setAttributes(checker, {'id': type + "-" + info[1].r + info[1].c, 'data-row': info[1].r, 'data-column': info[1].c});
+
+        freeSeat.style.left = info[1].posX + 'px';
+        freeSeat.style.top = info[1].posY + 'px';
+
+        this.setAttributes(freeSeat, {'id': "free-" + info[0].r + info[0].c, 'data-row': info[0].r, 'data-column': info[0].c});
     }
 
     createElement(tag, className) {

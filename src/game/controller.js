@@ -7,18 +7,19 @@ class Controller {
         this.model.init();
         this.view.drawChessBackground();
         this.view.drawCheckers(this.model.boardInfo);
-        this.view.bindToggleChecker(this.setValueOfChecker);
+        this.view.bindToggleChecker(this.setActiveCheckerInfo);
         this.model.bindBoardChanged(this.onBoardChanged);
 
-        this.onBoardChanged(this.model.boardInfo, this.model.activeFreeSeats);
+        this.onBoardChanged(this.model.boardInfo);
     }
 
-    setValueOfChecker = result => {
+    setActiveCheckerInfo = result => {
         this.model.setSelectedCheckerPosition(result);
         this.onBoardChanged(this.model.boardInfo, this.model.activeFreeSeats);
     }
 
     onBoardChanged = (board, activeFreeSeats) => {
         this.view.drawActiveFreeSeats(activeFreeSeats);
+        this.view.drawCheckerMove(this.model.moveChecker);
     }
 }
