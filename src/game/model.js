@@ -133,6 +133,14 @@ class Model {
                 this.activeFreeSeats.push(this.boardInfo[checker.r - 1].row[checker.c + 1]);
             }
 
+            if(this.boardInfo[checker.r - 1].row[checker.c + 1].type === 1 && this.boardInfo[checker.r - 2].row[checker.c + 2].type === 2) {
+                this.activeFreeSeats.push(this.boardInfo[checker.r - 2].row[checker.c + 2]);
+            }
+
+            if(this.boardInfo[checker.r - 1].row[checker.c - 1].type === 1 && this.boardInfo[checker.r - 2].row[checker.c - 2].type === 2) {
+                this.activeFreeSeats.push(this.boardInfo[checker.r - 2].row[checker.c - 2]);
+            }
+
         } else if((checkerType === 1) && (this.playerTurn === 1)) { // 'Black Checker Turn'
 
             if(this.boardInfo[checker.r + 1].row[checker.c - 1].type === 2) {
@@ -141,6 +149,14 @@ class Model {
 
             if(this.boardInfo[checker.r + 1].row[checker.c + 1].type === 2) {
                 this.activeFreeSeats.push(this.boardInfo[checker.r + 1].row[checker.c + 1]);
+            }
+
+            if(this.boardInfo[checker.r + 1].row[checker.c + 1].type === 0 && this.boardInfo[checker.r + 2].row[checker.c + 2].type === 2) {
+                this.activeFreeSeats.push(this.boardInfo[checker.r + 2].row[checker.c + 2]);
+            }
+
+            if(this.boardInfo[checker.r + 1].row[checker.c - 1].type === 0 && this.boardInfo[checker.r + 2].row[checker.c - 2].type === 2) {
+                this.activeFreeSeats.push(this.boardInfo[checker.r + 2].row[checker.c - 2]);
             }
 
         }
