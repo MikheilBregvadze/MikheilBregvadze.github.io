@@ -68,6 +68,7 @@ section .title {
     padding-top: 25px;
     line-height: 1.1;
     font-size: 27px;
+    font-family: 'Intro-BlackAlt';
 }
 
 section .title span {
@@ -97,7 +98,7 @@ section h5 {
 
 .description p {
     font-size: 8px;
-    font-family: "Intro-BoldAlt";
+    font-family: 'Intro-Regular';
 }
 
 .description p span {
@@ -371,19 +372,24 @@ footer h6 {
 .certifications_list {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 30px;
+    padding: 0 27px;
     padding-top: 15px;
     margin-bottom: 55px;
     justify-content: center;
 }
 
-.certifications_list span {
+.certifications_list > span {
     position: relative;
     display: block;
-    font-size: 8px;
+    font-size: 5.4px;
     margin-bottom: 5px;
-    padding-right: 10px;
+    padding-right: 8px;
     font-family: 'Intro-Regular';
+}
+
+.comming_soon {
+    display: initial;
+    font-size: 5px;
 }
 
 .certifications_list span::before {
@@ -395,6 +401,7 @@ footer h6 {
     margin: auto;
     width: 2px;
     height: 2px;
+    border-radius: 50px;
     background-color: #ea0139;
 
 }
@@ -415,111 +422,111 @@ footer h6 {
 }
 
 .partners_list a:nth-child(1) {
-    background: url('../Images/partners/1.png') no-repeat;
+    background: url('../Images/partners/1.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(2) {
-    background: url('../Images/partners/2.png') no-repeat;
+    background: url('../Images/partners/2.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(3) {
-    background: url('../Images/partners/3.png') no-repeat;
+    background: url('../Images/partners/3.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(4) {
-    background: url('../Images/partners/4.png') no-repeat;
+    background: url('../Images/partners/4.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(5) {
-    /* background: url('../Images/partners/5.png') no-repeat; */
+    /* background: url('../Images/partners/5.png') no-repeat center bottom; */
 }
 
 .partners_list a:nth-child(6) {
-    background: url('../Images/partners/5.png') no-repeat;
+    background: url('../Images/partners/5.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(7) {
-    background: url('../Images/partners/6.png') no-repeat;
+    background: url('../Images/partners/6.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(8) {
-    background: url('../Images/partners/7.png') no-repeat;
+    background: url('../Images/partners/7.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(9) {
-    background: url('../Images/partners/8.png') no-repeat;
+    background: url('../Images/partners/8.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(10) {
-    background: url('../Images/partners/9.png') no-repeat;
+    background: url('../Images/partners/9.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(11) {
-    background: url('../Images/partners/10.png') no-repeat;
+    background: url('../Images/partners/10.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(12) {
-    background: url('../Images/partners/11.png') no-repeat;
+    background: url('../Images/partners/11.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(13) {
-    background: url('../Images/partners/12.png') no-repeat;
+    background: url('../Images/partners/12.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(14) {
-    background: url('../Images/partners/13.png') no-repeat;
+    background: url('../Images/partners/13.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(15) {
-    background: url('../Images/partners/14.png') no-repeat;
+    background: url('../Images/partners/14.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(16) {
-    background: url('../Images/partners/15.png') no-repeat;
+    background: url('../Images/partners/15.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(17) {
-    background: url('../Images/partners/16.png') no-repeat;
+    background: url('../Images/partners/16.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(18) {
-    background: url('../Images/partners/17.png') no-repeat;
+    background: url('../Images/partners/17.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(19) {
-    background: url('../Images/partners/18.png') no-repeat;
+    background: url('../Images/partners/18.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(20) {
-    background: url('../Images/partners/19.png') no-repeat;
+    background: url('../Images/partners/19.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(21) {
-    background: url('../Images/partners/20.png') no-repeat;
+    background: url('../Images/partners/20.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(22) {
-    background: url('../Images/partners/21.png') no-repeat;
+    background: url('../Images/partners/21.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(23) {
-    background: url('../Images/partners/22.png') no-repeat;
+    background: url('../Images/partners/22.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(24) {
-    background: url('../Images/partners/23.png') no-repeat;
+    background: url('../Images/partners/23.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(25) {
-    background: url('../Images/partners/24.png') no-repeat left bottom;
+    background: url('../Images/partners/24.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(26) {
-    background: url('../Images/partners/25.png') no-repeat;
+    background: url('../Images/partners/25.png') no-repeat center bottom;
 }
 
 .partners_list a:nth-child(27) {
-    background: url('../Images/partners/26.png') no-repeat;
+    background: url('../Images/partners/26.png') no-repeat center bottom;
 }
 
 .partners_list {
