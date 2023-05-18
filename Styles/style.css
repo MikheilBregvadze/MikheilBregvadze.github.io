@@ -378,7 +378,7 @@ footer h6 {
     justify-content: center;
 }
 
-.certifications_list > span {
+.certifications_list > p {
     position: relative;
     display: block;
     font-size: 5.4px;
@@ -388,11 +388,10 @@ footer h6 {
 }
 
 .comming_soon {
-    display: initial;
     font-size: 5px;
 }
 
-.certifications_list > span::before {
+.certifications_list > p::before {
     content: '';
     position: absolute;
     left: -5px;
