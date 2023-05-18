@@ -331,6 +331,7 @@ section h5 {
 .link_cricketX {
     width: 92px;
     height: 130px;
+    pointer-events: none;
     -webkit-transform: translate(-6px, -55px);
         -ms-transform: translate(-6px, -55px);
             transform: translate(-6px, -55px);
