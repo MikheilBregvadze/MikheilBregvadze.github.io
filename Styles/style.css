@@ -47,6 +47,7 @@ header::before {
     margin-right: 30px;
     margin-bottom: 52px;
     background: url('../Images/logo.png') no-repeat;
+    background-size: contain;
 }
 
 .section {
@@ -93,7 +94,7 @@ section h5 {
     right: 15px;
     width: 189px;
     height: 85px;
-    background: url('../Images/jet1.png');
+    background: url('../Images/jet.png');
     background-size: contain;
 }
 
@@ -114,7 +115,7 @@ section h5 {
     -webkit-transform: translateX(-30px);
         -ms-transform: translateX(-30px);
             transform: translateX(-30px);
-    background: url('../Images/cricketball1.png') no-repeat;
+    background: url('../Images/cricketball.png') no-repeat;
     background-size: contain;
 }
 
@@ -144,7 +145,7 @@ section h5 {
     height: 27px;
     top: -13px;
     right: 30px;
-    background: url('../Images/jetxlogo1.png') no-repeat;
+    background: url('../Images/jetxlogo.png') no-repeat;
     background-size: contain;
 }
 
@@ -159,7 +160,7 @@ section h5 {
     right: -30px;
     width: 96px;
     height: 63px;
-    background: url('../Images/plinkoball1.png') no-repeat;
+    background: url('../Images/plinkoball.png') no-repeat;
     background-size: contain; 
 }
 
@@ -203,7 +204,7 @@ section h5 {
     -webkit-transform: translateX(10px);
         -ms-transform: translateX(10px);
             transform: translateX(10px);
-    background: url('../Images/jetxjet1.png') no-repeat;
+    background: url('../Images/jetxjet.png') no-repeat;
     background-size: contain;
 }
 
@@ -249,7 +250,7 @@ section h5 {
     width: 116px;
     height: 19px;
     top: -88px;
-    background: url('../Images/xgameButton1.png') no-repeat;
+    background: url('../Images/xgameButton.png') no-repeat;
     background-size: contain;
 }
 
@@ -259,7 +260,7 @@ section h5 {
     right: -15px;
     width: 124px;
     height: 179px;
-    background: url('../Images/footballer1.png') no-repeat;
+    background: url('../Images/footballer.png') no-repeat;
     background-size: contain;
 }
 
@@ -283,6 +284,7 @@ section h5 {
         -ms-transform: translateX(-30px);
             transform: translateX(-30px);
     background: url('../Images/fox.png') no-repeat;
+    background-size: contain;
 }
 
 .borderTop {
@@ -313,7 +315,7 @@ section h5 {
     -webkit-transform: translateY(-85px);
         -ms-transform: translateY(-85px);
             transform: translateY(-85px);
-    background: url('../Images/futballx1.png') no-repeat;
+    background: url('../Images/futballx.png') no-repeat;
     background-size: contain;
     background-position: 0px 37px;
 }
@@ -321,7 +323,7 @@ section h5 {
 .link_balloon {
     width: 70px;
     height: 73px;
-    background: url('../Images/balloon1.png') no-repeat;
+    background: url('../Images/balloon.png') no-repeat;
     background-size: contain;
 }
 
@@ -329,14 +331,14 @@ section h5 {
     width: 71px;
     height: 74px;
     margin-left: 15px;
-    background: url('../Images/cappadocia1.png') no-repeat;
+    background: url('../Images/cappadocia.png') no-repeat;
     background-size: contain;
 }
 
 .link_plinkoX {
     width: 76px;
     height: 74px;
-    background: url('../Images/plinko1.png') no-repeat;
+    background: url('../Images/plinko.png') no-repeat;
     background-size: contain;
 }
 
@@ -347,7 +349,7 @@ section h5 {
     -webkit-transform: translateY(-5px);
         -ms-transform: translateY(-5px);
             transform: translateY(-5px);
-    background: url('../Images/cricket1.png') no-repeat;
+    background: url('../Images/cricket.png') no-repeat;
     background-size: contain;
 }
 
@@ -433,7 +435,7 @@ footer h6 {
     height: 11px;
     margin: 0 2px 10px 2px;
     display: block;
-    /* background: url('../Images/partners/1.png') no-repeat; */
+    /* background: url('../Images/partners/.png') no-repeat; */
 }
 
 .partners_list a:nth-child(1) {
@@ -487,7 +489,7 @@ footer h6 {
 }
 
 .partners_list a:nth-child(11) {
-    background: url('../Images/partners/11.png') no-repeat center center;
+    background: url('../Images/partners/1.png') no-repeat center center;
     background-size: contain;
 }
 
@@ -537,7 +539,7 @@ footer h6 {
 }
 
 .partners_list a:nth-child(21) {
-    background: url('../Images/partners/21.png') no-repeat center center;
+    background: url('../Images/partners/2.png') no-repeat center center;
     background-size: contain;
 }
 
