@@ -19,16 +19,6 @@
 }
 
 @font-face {
-    font-family: 'Intro-BlackInline';
-    src: url('../Fonts/Intro-BlackInline.otf') format('otf'),
-    url('../Fonts/Intro-BlackInline.ttf') format('truetype'),
-    url('../Fonts/Intro-BlackInline.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
     font-family: 'Intro-Regular';
     src: url('../Fonts/Intro-Regular.otf') format('otf'),
     url('../Fonts/Intro-Regular.ttf') format('truetype'),
@@ -56,24 +46,3 @@
     font-weight: normal;
     font-style: normal;
 }
-
-/* @font-face {
-    font-family: 'font2';
-    src: url('../Fonts/font2/font2-regular-webfont.woff2') format('woff2'),
-    url('../Fonts/font2/font2-regular-webfont.woff') format('woff'),
-    url('../Fonts/font2/font2-regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
-    font-family: 'IntroBlackCaps';
-    src: url('../Fonts/Intro/Intro-Black-Caps.otf');
-}
-
-@font-face {
-    font-family: 'IntroRegular';
-    src: url('../Fonts/Intro/Intro-Regular.otf');
-} */

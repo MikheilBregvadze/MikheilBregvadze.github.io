@@ -152,11 +152,11 @@ section h5 {
 .plinko_ball {
     content: '';
     position: absolute;
-    top: -75px;
+    top: -82px;
     right: -30px;
     width: 96px;
     height: 63px;
-    background: url(../Images/plinkoball.png); 
+    background: url('../Images/plinkoball.png'); 
 }
 
 .jetx .description p {
@@ -368,6 +368,7 @@ footer h6 {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: "Intro-BoldAlt";
+    color: rgba(242, 242, 242, 0.671);
 }
 
 .certifications_list {
@@ -386,6 +387,7 @@ footer h6 {
     margin-bottom: 5px;
     padding-right: 8px;
     font-family: 'Intro-Regular';
+    color: rgba(242, 242, 242, 0.871);
 }
 
 .comming_soon {
