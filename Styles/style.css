@@ -285,6 +285,7 @@ section h5 {
             transform: translateX(-30px);
     background: url('../Images/fox.png') no-repeat;
     background-size: contain;
+    background-position: 21px;
 }
 
 .borderTop {
@@ -428,6 +429,8 @@ footer h6 {
     padding: 0 25px;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 30px;
 }
 
 .partners_list a {
@@ -573,8 +576,31 @@ footer h6 {
     background-size: contain;
 }
 
-.partners_list {
-    padding-top: 15px;
-    padding-bottom: 75px;
+
+.social {
+    display: flex;
+    padding-bottom: 23px;
+    justify-content: end;
+    padding-right: 30px;
 }
 
+.social div {
+    width: 11px;
+    height: 11px;
+    margin-right: 5px;
+}
+
+.facebook {
+    background: url('../Images/facebook.png') no-repeat;
+    background-size: contain;
+}
+
+.linkedin {
+    background: url('../Images/linkdin.png') no-repeat;
+    background-size: contain
+}
+
+.instagram {
+    background: url('../Images/instagram.png') no-repeat;
+    background-size: contain
+}
