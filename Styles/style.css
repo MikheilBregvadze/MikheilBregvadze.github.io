@@ -204,8 +204,20 @@ section h5 {
     -webkit-transform: translateX(10px);
         -ms-transform: translateX(10px);
             transform: translateX(10px);
-    background: url('../Images/jetxjet.png') no-repeat;
-    background-size: contain;
+    /* background: url('../Images/jetxjet.png') no-repeat;
+    background-size: contain; */
+}
+
+.jetx_jet  canvas {
+    -webkit-transform: translate(-15px, -26px);
+        -ms-transform: translate(-15px, -26px);
+            transform: translate(-15px, -26px);
+}
+
+.smartsoft   canvas {
+    -webkit-transform: translate(0px, 5px);
+        -ms-transform: translate(0px, 5px);
+            transform: translate(0px, 5px);
 }
 
 .jetx .description .row > div p {
@@ -321,11 +333,27 @@ section h5 {
     background-position: 0px 37px;
 }
 
+.link_footballX canvas {
+    -webkit-transform: translate(-13px, 8px);
+        -ms-transform: translate(-13px, 8px);
+            transform: translate(-13px, 8px);
+}
+
 .link_balloon {
     width: 70px;
     height: 73px;
     background: url('../Images/balloon.png') no-repeat;
     background-size: contain;
+}
+
+canvas {
+    pointer-events: none;
+}
+
+.link_balloon canvas {
+    -webkit-transform: translate(-13px, -12px);
+        -ms-transform: translate(-13px, -12px);
+            transform: translate(-13px, -12px);
 }
 
 .link_cappadocia {
@@ -336,11 +364,23 @@ section h5 {
     background-size: contain;
 }
 
+.link_cappadocia canvas {
+    -webkit-transform: translate(-17px, -12px);
+        -ms-transform: translate(-17px, -12px);
+            transform: translate(-17px, -12px);
+}
+
 .link_plinkoX {
     width: 76px;
     height: 74px;
     background: url('../Images/plinko.png') no-repeat;
     background-size: contain;
+}
+
+.link_plinkoX canvas {
+    -webkit-transform: translate(-17px, -13px);
+        -ms-transform: translate(-17px, -13px);
+            transform: translate(-17px, -13px);
 }
 
 .link_cricketX {
@@ -352,6 +392,12 @@ section h5 {
             transform: translateY(-5px);
     background: url('../Images/cricket.png') no-repeat;
     background-size: contain;
+}
+
+.link_cricketX canvas {
+    -webkit-transform: translate(-4px, -11px);
+        -ms-transform: translate(-4px, -11px);
+            transform: translate(-4px, -11px);
 }
 
 .list {
@@ -582,12 +628,17 @@ footer h6 {
     padding-bottom: 23px;
     justify-content: end;
     padding-right: 30px;
+    
 }
 
 .social a {
     width: 11px;
     height: 11px;
     margin-right: 5px;
+    -webkit-animation: flickerAnimation 1s infinite;
+    -moz-animation: flickerAnimation 1s infinite;
+    -o-animation: flickerAnimation 1s infinite;
+    animation: flickerAnimation 1s infinite;
 }
 
 .facebook {
@@ -595,12 +646,45 @@ footer h6 {
     background-size: contain;
 }
 
+.facebook canvas {
+    /* -webkit-transform: translate(-4px, -8px);
+        -ms-transform: translate(-4px, -8px);
+            transform: translate(-4px, -8px); */
+}
+
 .linkedin {
     background: url('../Images/linkdin.png') no-repeat;
     background-size: contain
 }
+/* 
+.linkedin canvas {
+    -webkit-transform: translate(-4px, -7px);
+        -ms-transform: translate(-4px, -7px);
+            transform: translate(-4px, -7px);
+} */
 
 .instagram {
     background: url('../Images/instagram.png') no-repeat;
     background-size: contain
+}
+
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0.8; }
+    100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0.8; }
+    100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0.8; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0.8; }
+    100% { opacity:1; }
 }

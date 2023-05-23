@@ -1,0 +1,172 @@
+
+pager.png
+size: 1966,1773
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ballooon
+  rotate: true
+  xy: 466, 1386
+  size: 385, 406
+  orig: 385, 406
+  offset: 0, 0
+  index: -1
+ballooon glow
+  rotate: true
+  xy: 874, 1386
+  size: 385, 406
+  orig: 385, 406
+  offset: 0, 0
+  index: -1
+ballooon shadow
+  rotate: true
+  xy: 463, 501
+  size: 475, 494
+  orig: 475, 494
+  offset: 0, 0
+  index: -1
+cappadocia
+  rotate: true
+  xy: 1282, 1374
+  size: 397, 405
+  orig: 397, 405
+  offset: 0, 0
+  index: -1
+cappadocia glow
+  rotate: true
+  xy: 2, 1311
+  size: 397, 405
+  orig: 397, 405
+  offset: 0, 0
+  index: -1
+cappadocia shadow
+  rotate: true
+  xy: 959, 477
+  size: 485, 494
+  orig: 485, 494
+  offset: 0, 0
+  index: -1
+cricketx
+  rotate: false
+  xy: 1257, 964
+  size: 459, 408
+  orig: 459, 408
+  offset: 0, 0
+  index: -1
+cricketx glow
+  rotate: false
+  xy: 2, 568
+  size: 459, 408
+  orig: 459, 408
+  offset: 0, 0
+  index: -1
+cricketx shadow
+  rotate: false
+  xy: 2, 2
+  size: 537, 497
+  orig: 537, 497
+  offset: 0, 0
+  index: -1
+fb
+  rotate: false
+  xy: 278, 1711
+  size: 61, 60
+  orig: 61, 60
+  offset: 0, 0
+  index: -1
+ig
+  rotate: false
+  xy: 341, 1711
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+in
+  rotate: false
+  xy: 403, 1710
+  size: 61, 61
+  orig: 61, 61
+  offset: 0, 0
+  index: -1
+plinko
+  rotate: false
+  xy: 409, 978
+  size: 422, 406
+  orig: 422, 406
+  offset: 0, 0
+  index: -1
+plinko glow
+  rotate: false
+  xy: 833, 978
+  size: 422, 406
+  orig: 422, 406
+  offset: 0, 0
+  index: -1
+plinko shadow
+  rotate: false
+  xy: 1455, 468
+  size: 509, 494
+  orig: 509, 494
+  offset: 0, 0
+  index: -1
+smartsoft
+  rotate: false
+  xy: 2, 1736
+  size: 274, 35
+  orig: 274, 35
+  offset: 0, 0
+  index: -1
+
+pager2.png
+size: 2014,1754
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+footballx
+  rotate: false
+  xy: 2, 2
+  size: 1085, 838
+  orig: 1085, 838
+  offset: 0, 0
+  index: -1
+footballx shadow
+  rotate: false
+  xy: 2, 842
+  size: 1085, 910
+  orig: 1085, 910
+  offset: 0, 0
+  index: -1
+jet x glow
+  rotate: false
+  xy: 1089, 108
+  size: 923, 821
+  orig: 923, 821
+  offset: 0, 0
+  index: -1
+jetx
+  rotate: false
+  xy: 1089, 931
+  size: 923, 821
+  orig: 923, 821
+  offset: 0, 0
+  index: -1
+
+pager3.png
+size: 1753,1089
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+footballx glow
+  rotate: true
+  xy: 2, 2
+  size: 1085, 838
+  orig: 1085, 838
+  offset: 0, 0
+  index: -1
+jetx shadow
+  rotate: true
+  xy: 842, 110
+  size: 977, 909
+  orig: 977, 909
+  offset: 0, 0
+  index: -1
