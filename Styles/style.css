@@ -208,16 +208,18 @@ section h5 {
     background-size: contain; */
 }
 
-.jetx_jet  canvas {
+.jetx_jet canvas {
     -webkit-transform: translate(-15px, -26px);
         -ms-transform: translate(-15px, -26px);
             transform: translate(-15px, -26px);
 }
 
-.smartsoft   canvas {
-    -webkit-transform: translate(0px, 5px);
-        -ms-transform: translate(0px, 5px);
-            transform: translate(0px, 5px);
+.smartsoft {
+    display: inline-block;
+    -webkit-animation: scaleAnimation 1s infinite;
+    -moz-animation: scaleAnimation 1s infinite;
+    -o-animation: scaleAnimation 1s infinite;
+    animation: scaleAnimation 1s infinite;
 }
 
 .jetx .description .row > div p {
@@ -687,4 +689,26 @@ footer h6 {
     0%   { opacity:1; }
     50%  { opacity:0.8; }
     100% { opacity:1; }
+}
+
+
+@keyframes scaleAnimation {
+    0%   { scale:1; }
+    50%  { scale:1.1; }
+    100% { scale:1; }
+}
+@-o-keyframes scaleAnimation{
+    0%   { scale:1; }
+    50%  { scale:1.1; }
+    100% { scale:1; }
+}
+@-moz-keyframes scaleAnimation{
+    0%   { scale:1; }
+    50%  { scale:1.1; }
+    100% { scale:1; }
+}
+@-webkit-keyframes scaleAnimation{
+    0%   { scale:1; }
+    50%  { scale:1.1; }
+    100% { scale:1; }
 }

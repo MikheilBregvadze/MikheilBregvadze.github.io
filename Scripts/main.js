@@ -24,8 +24,8 @@ function onAssetsLoaded(loader, res) {
     const jetx = new Animation(167, 200, 'jetx', { x: -13, y: 0, scale: 0.175 }, '.jetx_jet');
     jetx.init(res);
 
-    const smartsoft = new Animation(55, 20, 'smartsoft', { x: -73, y: -90, scale: 0.185 }, '.smartsoft');
-    smartsoft.init(res);
+    // const smartsoft = new Animation(55, 20, 'smartsoft', { x: -73, y: -90, scale: 0.185 }, '.smartsoft');
+    // smartsoft.init(res);
     
     // const facebook = new Animation(20, 20, 'fb', { x: -90, y: -90, scale: 0.185 }, '.facebook');
     // facebook.init(res);
