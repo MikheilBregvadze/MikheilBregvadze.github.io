@@ -4,25 +4,25 @@ PIXI.loader
 
 function onAssetsLoaded(loader, res) {
 
-    const balloon = new Animation(100, 100, 'balloon', { x: -50, y: -50, scale: 0.18 }, '.link_balloon');
-    balloon.init(res);
+    // const balloon = new Animation(100, 100, 'balloon', { x: -50, y: -50, scale: 0.18 }, '.link_balloon');
+    // balloon.init(res);
     
-    const cappadocia = new Animation(100, 100, 'cappadocia', { x: -50, y: -50, scale: 0.18 }, '.link_cappadocia');
+    // const cappadocia = new Animation(100, 100, 'cappadocia', { x: -50, y: -50, scale: 0.18 }, '.link_cappadocia');
 
-    cappadocia.init(res);
+    // cappadocia.init(res);
 
-    const plinko = new Animation(100, 100, 'plinko', { x: -50, y: -50, scale: 0.18 }, '.link_plinkoX');
-    plinko.init(res);
+    // const plinko = new Animation(100, 100, 'plinko', { x: -50, y: -50, scale: 0.18 }, '.link_plinkoX');
+    // plinko.init(res);
 
-    const crocketx = new Animation(100, 100, 'crocketx', { x: -50, y: -50, scale: 0.185 }, '.link_cricketX');
-    crocketx.init(res);
+    // const crocketx = new Animation(100, 100, 'crocketx', { x: -50, y: -50, scale: 0.185 }, '.link_cricketX');
+    // crocketx.init(res);
     
 
-    const football = new Animation(200, 200, 'football x', { x: 0, y: 0, scale: 0.185 }, '.link_footballX');
-    football.init(res);
+    // const football = new Animation(200, 200, 'football x', { x: 0, y: 0, scale: 0.185 }, '.link_footballX');
+    // football.init(res);
 
-    const jetx = new Animation(167, 200, 'jetx', { x: -13, y: 0, scale: 0.175 }, '.jetx_jet');
-    jetx.init(res);
+    // const jetx = new Animation(167, 200, 'jetx', { x: -13, y: 0, scale: 0.175 }, '.jetx_jet');
+    // jetx.init(res);
 
     // const smartsoft = new Animation(55, 20, 'smartsoft', { x: -73, y: -90, scale: 0.185 }, '.smartsoft');
     // smartsoft.init(res);
