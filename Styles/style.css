@@ -655,6 +655,7 @@ footer h6 {
 }
 
 .linkedin {
+    animation-delay: .4s !important;
     background: url('../Images/linkdin.png') no-repeat;
     background-size: contain
 }
@@ -666,6 +667,7 @@ footer h6 {
 } */
 
 .instagram {
+    animation-delay: .8s !important;
     background: url('../Images/instagram.png') no-repeat;
     background-size: contain
 }
