@@ -37,41 +37,41 @@ function onAssetsLoaded(loader, res) {
     // instagram.init(res);
 }
 
-const defaultParams = {
-    x: 0,
-    y: 0,
-    scale: 1
-}
+// const defaultParams = {
+//     x: 0,
+//     y: 0,
+//     scale: 1
+// }
 
-class Animation {
-    constructor(width, height, animationName, params = defaultParams, tagName) {
-        this.app = null;
-        this.width = width;
-        this.height = height;
-        this.animationName = animationName;
-        this.spine = null;
-        this.params = params;
-        this.tagName = tagName;
-    }
+// class Animation {
+//     constructor(width, height, animationName, params = defaultParams, tagName) {
+//         this.app = null;
+//         this.width = width;
+//         this.height = height;
+//         this.animationName = animationName;
+//         this.spine = null;
+//         this.params = params;
+//         this.tagName = tagName;
+//     }
 
-    init(res) {
-        this.app  = new PIXI.Application({ 
-            width: this.width,
-            height: this.height,
-            transparent: true,
-            autoResize: true
-        });
-        document.querySelector(this.tagName).appendChild(this.app.view);
-        this.onAssetsLoaded(res)
-    }
+//     init(res) {
+//         this.app  = new PIXI.Application({ 
+//             width: this.width,
+//             height: this.height,
+//             transparent: true,
+//             autoResize: true
+//         });
+//         document.querySelector(this.tagName).appendChild(this.app.view);
+//         this.onAssetsLoaded(res)
+//     }
 
-    onAssetsLoaded(res) {
-        this.spine = this.app.stage.addChild(new PIXI.spine.Spine(res['button'].spineData));
-        this.spine.state.setAnimation(0, this.animationName, true);
-        this.spine.x = this.params.x;
-        this.spine.y = this.params.y;
-        this.spine.scale.x = this.params.scale;
-        this.spine.scale.y = this.params.scale;
-    }
-}
+//     onAssetsLoaded(res) {
+//         this.spine = this.app.stage.addChild(new PIXI.spine.Spine(res['button'].spineData));
+//         this.spine.state.setAnimation(0, this.animationName, true);
+//         this.spine.x = this.params.x;
+//         this.spine.y = this.params.y;
+//         this.spine.scale.x = this.params.scale;
+//         this.spine.scale.y = this.params.scale;
+//     }
+// }
 
