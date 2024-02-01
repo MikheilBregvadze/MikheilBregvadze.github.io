@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./Styles/font.css">
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></script> -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></script>
+
 </head>
 <body>
 
@@ -18,17 +20,9 @@
     </header>
     
     <section>
-        <form method="post">
+        <form onsubmit="return onSubmit(event)" method="post">
             <input type="text" name="namme" placeholder="Name">
-            <!-- <div class="g-recaptcha" data-sitekey="6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></div> -->
-            <!-- <button type="submit">Submit</button> -->
-            
-            <!-- onclick="return onSubmit(event)" -->
-            <button 
-                class="g-recaptcha" 
-                data-sitekey="6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY" 
-                data-callback='onSubmit' 
-                data-action='submit'>Submit</button>
+            <button>Submit</button>
         </form>
         <div class="section">
             <h1 class="title">
@@ -194,10 +188,22 @@
     <script src="./Scripts/lib/pixi-spine.js"></script>
     <script src="./Scripts/main.js"></script>
 
-    <script>
+    <!-- <script>
         function onSubmit(event) {
             event.preventDefault();
             console.log(event);
+        }
+    </script> -->
+
+    <script>
+        function onSubmit(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY', {action: 'submit'}).then(function(token) {
+                // Add your logic to submit to your backend server here.
+                console.log('connected');
+            });
+        });
         }
     </script>
 
