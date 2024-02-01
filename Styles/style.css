@@ -4,8 +4,8 @@
 }
 
 .g-recaptcha {
-    visibility: hidden;
-    pointer-events: none;
+    /* visibility: hidden;
+    pointer-events: none; */
 }
 
 body {

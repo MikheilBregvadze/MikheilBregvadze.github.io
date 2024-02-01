@@ -8,7 +8,8 @@
     <link rel="shortcut icon" href="../Images/favicon.ico">
     <link rel="stylesheet" href="./Styles/style.css">
     <link rel="stylesheet" href="./Styles/font.css">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></script> -->
 </head>
 <body>
 
@@ -17,10 +18,17 @@
     </header>
     
     <section>
-        <form onsubmit="return onSubmit(event)" method="post">
+        <form method="post">
             <input type="text" name="namme" placeholder="Name">
-            <div class="g-recaptcha" data-sitekey="6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></div>
-            <button type="submit">Submit</button>
+            <!-- <div class="g-recaptcha" data-sitekey="6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></div> -->
+            <!-- <button type="submit">Submit</button> -->
+            
+            <!-- onclick="return onSubmit(event)" -->
+            <button 
+                class="g-recaptcha" 
+                data-sitekey="6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY" 
+                data-callback='onSubmit' 
+                data-action='submit'>Submit</button>
         </form>
         <div class="section">
             <h1 class="title">
@@ -189,7 +197,7 @@
     <script>
         function onSubmit(event) {
             event.preventDefault();
-            console.log(event.target[0].value);
+            console.log(event);
         }
     </script>
 
