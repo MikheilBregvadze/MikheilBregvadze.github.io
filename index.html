@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../Images/favicon.ico">
     <link rel="stylesheet" href="./Styles/style.css">
     <link rel="stylesheet" href="./Styles/font.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></script>
 </head>
 <body>
 
@@ -16,7 +17,10 @@
     </header>
     
     <section>
-
+        <form action="index.html" method="post">
+            <div class="g-recaptcha" data-sitekey="6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></div>
+            <button type="submit">Submit</button>
+        </form>
         <div class="section">
             <h1 class="title">
                 LEADING <br/> NON-TRADITIONAL <br />CASINO GAMES <br /> <span>PROVIDER</span>
@@ -180,6 +184,12 @@
     <script src="./Scripts/lib/pixi.js"></script>
     <script src="./Scripts/lib/pixi-spine.js"></script>
     <script src="./Scripts/main.js"></script>
+
+    <script>
+        function onSubmit(token) {
+            document.getElementById('form').submit();
+        }
+    </script>
 
 </body>
 </html>
