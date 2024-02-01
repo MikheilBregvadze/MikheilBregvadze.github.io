@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+.g-recaptcha {
+    visibility: hidden;
+    pointer-events: none;
+}
+
 body {
     width: 100%;
     height: 100%;

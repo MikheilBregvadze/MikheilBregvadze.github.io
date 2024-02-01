@@ -17,7 +17,8 @@
     </header>
     
     <section>
-        <form action="index.html" method="post">
+        <form onsubmit="return onSubmit(event)" method="post">
+            <input type="text" name="namme" placeholder="Name">
             <div class="g-recaptcha" data-sitekey="6LdwTl0pAAAAAMqhnIyAICYfT41Uu6PwLLR6_KFY"></div>
             <button type="submit">Submit</button>
         </form>
@@ -186,8 +187,9 @@
     <script src="./Scripts/main.js"></script>
 
     <script>
-        function onSubmit(token) {
-            document.getElementById('form').submit();
+        function onSubmit(event) {
+            event.preventDefault();
+            console.log(event.target[0].value);
         }
     </script>
 
